@@ -5,12 +5,12 @@ var webserver = require('gulp-webserver');
 
 //style paths
 var sassFiles = 'scss/**/*.scss';
-var cssDest = 'css/';
+var cssDest = 'css/main.css';
 
 
 
 gulp.task('styles', async function(){
-    gulp.src(sassFiles)
+    gulp.src('scss/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(cssDest))
 });

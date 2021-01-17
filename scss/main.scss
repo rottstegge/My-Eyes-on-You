@@ -1,5 +1,6 @@
-html{
-    background-color: blue;
-    padding: 200px;
-    margin: 300px
-}
+@import "normalize";
+
+@import "variables";
+@import "typography";
+@import "layout";
+
