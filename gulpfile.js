@@ -5,14 +5,14 @@ var webserver = require('gulp-webserver');
 
 //style paths
 var sassFiles = 'scss/**/*.scss';
-var cssDest = 'css/main.css';
+var cssDest = 'public/css';
 
 
 
 gulp.task('styles', async function(){
     gulp.src('scss/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(cssDest))
+        .pipe(gulp.dest(cssDest));
 });
 
 // Rerun the task when a file changes
@@ -22,12 +22,12 @@ gulp.task('watch', function() {
  
 
 gulp.task('webserver', function() {
-  gulp.src('./')
+  gulp.src('public')
     .pipe(webserver({
+      port: 12345,
       livereload: true,
       //directoryListing: true,
-      open: true,
-      defaultFile: 'index.html'
+      open: true
     }));
 });
 
