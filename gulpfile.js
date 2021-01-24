@@ -1,7 +1,12 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp =      require('gulp');
+var sass =      require('gulp-sass');
+var babel =     require('gulp-babel');
+var sourcemaps = require('gulp-sourcemaps');
+var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
 
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 //style paths
 var sassFiles = 'scss/**/*.scss';
@@ -18,6 +23,8 @@ gulp.task('styles', async function(){
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(sassFiles, gulp.series('styles'));
+  gulp.watch('js/**/*.js', gulp.series('scripts'));
+
 });
  
 
@@ -30,5 +37,16 @@ gulp.task('webserver', function() {
       open: true
     }));
 });
+
+
+gulp.task('scripts', function() {
+  return browserify('js/main.js')
+    .bundle()
+    //Pass desired output filename to vinyl-source-stream
+    .pipe(source('app.bundle.js'))
+    // Start piping stream to tasks!
+    .pipe(gulp.dest('public/js/'));
+});
+
 
 gulp.task('default', gulp.parallel('watch', 'webserver'));
