@@ -1,0 +1,38 @@
+// Declaring Usables Fonts
+
+@font-face{
+    font-family: 'Diatype';
+    src: url('../fonts/EduDiatype-Regular.woff') format('woff');
+    src: url('../fonts/EduDiatype-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'Diatype';
+    src: url('../fonts/EduDiatype-RegularItalic.woff') format('woff');
+    src: url('../fonts/EduDiatype-RegularItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+// Overall Text Sizing
+
+html {
+    font-family: 'Diatype', 'Helvetica', 'sans-serif';
+    font-size: 0.4vw;
+}
+
+
+
+@mixin text-s{
+    font-size: 1rem;
+}
+@mixin text-m{
+    font-size: 3.5rem;
+}
+@mixin text-l{
+    font-size: 5rem;
+
+}

@@ -1,0 +1,54 @@
+{
+    "artworks": {
+
+      "1": {
+        "artist-name": "Helene Padoux",
+        "artwork-title": "Helene Padoux",
+        "material": "Material and so on",
+        "images": [
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 1
+            },
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 2
+            },
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 3
+            }
+        ]
+      },
+      "2": {
+        "artist-name": "Helene Padoux",
+        "artwork-title": "Helene Padoux",
+        "material": "Material and so on",
+        "images": [
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 4
+            },
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 5
+            },
+            {
+                "image-url": "Artwork Title", 
+                "image-caption": 6
+            }
+        ]
+      }
+
+
+
+
+
+
+
+
+      
+    }
+  }
+
+

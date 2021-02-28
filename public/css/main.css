@@ -189,54 +189,126 @@ input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   padding: 0; }
 
+@font-face {
+  font-family: 'Diatype';
+  src: url("../fonts/EduDiatype-Regular.woff") format("woff");
+  src: url("../fonts/EduDiatype-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Diatype';
+  src: url("../fonts/EduDiatype-RegularItalic.woff") format("woff");
+  src: url("../fonts/EduDiatype-RegularItalic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic; }
+
+html {
+  font-family: 'Diatype', 'Helvetica', 'sans-serif';
+  font-size: 0.4vw; }
+
 body {
   width: 100vw;
   height: 100vh;
   padding: 0;
   margin: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  font-size: 5rem; }
 
 div {
   box-sizing: border-box;
   padding: 0;
   margin: 0; }
 
+.clickable {
+  pointer-events: all;
+  cursor: pointer; }
+
 .interface {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: grid;
+  pointer-events: none;
   grid-template-columns: auto 1fr auto auto auto;
-  grid-template-rows: auto auto 1fr; }
-  .interface > div {
-    padding: 3px; }
+  grid-template-rows: auto auto 1fr;
+  color: white; }
   .interface .brand {
     grid-column: 1/2;
-    border-right: 2px solid red;
-    border-bottom: 2px solid red; }
+    border-right: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    padding: 2.5rem; }
   .interface .about-top-area {
-    border-bottom: 2px solid red; }
+    border-bottom: 1.5px solid white; }
   .interface .about-btn {
     grid-column: 3/4;
-    border-bottom: 2px solid red; }
+    border-bottom: 1.5px solid white;
+    padding: 2.5rem;
+    text-align: right; }
   .interface .top-right {
     grid-column: 4/5;
     grid-row: 1/1;
-    border-bottom: 2px solid red;
-    border-left: 2px solid red; }
+    border-bottom: 1.5px solid white;
+    border-left: 1.5px solid white; }
   .interface .artist-btn {
     grid-column: 4/5;
     grid-row: 2/3;
-    border-left: 2px solid red; }
+    border-left: 1.5px solid white;
+    padding: 2.5rem; }
+    .interface .artist-btn.active {
+      border-bottom: 1.5px solid white; }
   .interface .artist-area {
     grid-column: 4/5;
     grid-row: 3/4;
-    border-left: 2px solid red; }
+    border-left: 1.5px solid white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 3.5rem;
+    transition: transform 0.3s ease-in;
+    transform: translateX(100%); }
+    .interface .artist-area.open {
+      border-bottom: 1.5px solid white;
+      transform: translateX(0%); }
+    .interface .artist-area .artistlist-entry {
+      padding-top: 0;
+      padding-bottom: 0; }
+      .interface .artist-area .artistlist-entry:first-of-type {
+        padding-top: 2.5rem; }
+      .interface .artist-area .artistlist-entry .artist-name {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        width: 100%;
+        height: auto; }
+      .interface .artist-area .artistlist-entry .artist-artworks-list {
+        overflow-y: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem; }
+        .interface .artist-area .artistlist-entry .artist-artworks-list.open {
+          max-height: 50px;
+          border-top: 1.5px solid white;
+          border-bottom: 1.5px solid white; }
   .interface .minimap {
     grid-column: 3/5;
     grid-row: 4/5;
-    border-left: 2px solid red;
-    border-top: 2px solid red;
-    height: 300px; }
+    border-left: 1.5px solid white;
+    border-top: 1.5px solid white;
+    height: 20vh;
+    width: 20vw;
+    background-size: cover;
+    background-image: url("../content/img/map-mini.png");
+    transition: all 0.3s ease-in;
+    position: relative; }
+    .interface .minimap .position-indicator {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      border: 1.5px solid white;
+      pointer-events: none; }
 
 .borderanim::after {
   content: '';
@@ -250,18 +322,96 @@ div {
   width: 100%; }
 
 .map-container {
-  display: none;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   background-color: grey; }
   .map-container .map-draggable {
-    width: 100%;
-    height: auto;
+    min-width: 100%;
+    min-height: 100%;
     background-color: red;
-    opacity: 0.5; }
-    .map-container .map-draggable img {
-      min-height: 100vh;
-      min-width: 100vw;
-      object-fit: cover; }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3000px;
+    height: auto; }
+    .map-container .map-draggable .map-background {
+      position: relative;
+      width: 100%;
+      height: auto; }
+    .map-container .map-draggable .artwork-thumbnails {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none; }
+      .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail {
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        width: 20%;
+        height: auto;
+        cursor: pointer; }
+        .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .thumbnail-image {
+          width: 100%;
+          height: auto; }
+          .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .thumbnail-image img {
+            width: 100%;
+            height: auto; }
+        .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .blend-image {
+          mix-blend-mode: lighten; }
+        .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .regular-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0; }
+    .map-container .map-draggable .map-background img {
+      width: 100%;
+      height: auto; }
+
+.single-artwork-overlay {
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 1;
+  font-size: 3.5rem;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  display: none; }
+  .single-artwork-overlay.open {
+    display: grid; }
+  .single-artwork-overlay .topline-spacer {
+    height: 40px;
+    opacity: 0.5;
+    grid-column: 1 / 4; }
+  .single-artwork-overlay .artist-name {
+    padding: 0.83333rem;
+    border-top: 1.5px solid white; }
+  .single-artwork-overlay .artwork-info {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr; }
+    .single-artwork-overlay .artwork-info div {
+      border: 1.5px solid white;
+      padding: 0.83333rem; }
+    .single-artwork-overlay .artwork-info .material {
+      grid-column: 1/3; }

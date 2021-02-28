@@ -1,0 +1,56 @@
+{
+    "artists": {
+
+      "Luca Borsato": {
+        "artworks": [
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 1
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 2
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 3
+            }
+        ]
+      },
+      "Helene Padoux": {
+        "artworks": [
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 4
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 5
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 6
+            }
+        ]
+      },
+      "Further Name": {
+        "artworks": [
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 7
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 8
+            },
+            {
+                "artwork-title": "Artwork Title", 
+                "artwork-id": 9
+            }
+        ]
+      }
+
+    }
+  }
+
+

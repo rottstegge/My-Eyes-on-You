@@ -7,6 +7,8 @@ var webserver = require('gulp-webserver');
 
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+
 
 //style paths
 var sassFiles = 'scss/**/*.scss';
@@ -40,13 +42,22 @@ gulp.task('webserver', function() {
 
 
 gulp.task('scripts', function() {
-  return browserify('js/main.js')
+  return browserify({
+      entries: 'js/main.js',
+      debug: true
+    })
     .bundle()
     //Pass desired output filename to vinyl-source-stream
     .pipe(source('app.bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./maps'))
+
     // Start piping stream to tasks!
     .pipe(gulp.dest('public/js/'));
 });
+
+
 
 
 gulp.task('default', gulp.parallel('watch', 'webserver'));

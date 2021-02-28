@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>My Eyes on You</title>
 </head>
 <body>
@@ -13,16 +13,77 @@
         <div class="about-top-area"></div>
         <div class="about-btn">About</div>
         <div class="top-right"></div>
-        <div class="artist-btn">Artists</div>
-        <div class="artist-area"></div>
-        <div class="minimap"></div>
+        <div class="artist-btn clickable">Artists</div>
+        <div class="artist-area">
+            <template id="artistlist-entry-template">
+                <div class="artistlist-entry">
+                    <div class="artist-name">Artist Name</div>
+                    <div class="artist-artworks-list">
+                        <div class="artwork">Artwork Title</div>
+                    </div>
+                </div>
+            </template>
+
+            <div class="artistlist-entry">
+                <div class="artist-name clickable">Artist Name</div>
+                <div class="artist-artworks-list">
+                    <div class="artwork clickable">Artwork Title</div>
+                    <div class="artwork clickable">Artwork Title</div>
+                </div>
+            </div>
+            <div class="artistlist-entry">
+                <div class="artist-name clickable">Artist Name</div>
+                <div class="artist-artworks-list">
+                    <div class="artwork clickable">Artwork Title</div>
+                    <div class="artwork clickable">Artwork Title</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="minimap clickable">
+            <div class="position-indicator"></div>
+        </div>
     </div>
 
     <div class="map-container">
+    
         <div class="map-draggable">
+            <div class="map-background">
+                <img class="map-midres" src="content/img/map-5000.jpg" alt="">
+            </div>
 
-            <img class="map-midres" src="https://placekitten.com/500/400/" alt="">
+            <div class="artwork-thumbnails">
+                    <div class="artwork-thumbnail">
+                        <div class="thumbnail-image blend-image"><img draggable="false" src="content/img/1/a.jpeg"></div>
+                        <div class="thumbnail-image regular-image"><img draggable="false" src="content/img/1/a.jpeg"></div>
+                    </div>
+            </div>
         </div>
+    </div>
+
+    <div class="single-artwork-overlay">
+        <div class="topline-spacer"></div>
+        <div class="gallery-indicator">
+            1/3
+        </div>
+
+        <div class="gallery-container">
+        </div>
+        <div class="sidecol-spacer"></div>
+
+        <div class="artist-name">
+            Luca Borsato
+        </div>
+        <div class="metainfo-container">
+            <div class="artwork-info">
+                <div class="title">Never Take Away my Freedom</div>
+                <div class="series">Pop Stars 20177</div>
+                <div class="date">2020</div>
+                <div class="material">high-gloss-paper</div>
+                <div class="size">42x59cm</div>
+            </div>
+        </div>
+
     </div>
 
     <script src="js/app.bundle.js"></script>

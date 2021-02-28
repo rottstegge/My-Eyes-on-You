@@ -4,24 +4,34 @@ body{
     padding: 0;
     margin: 0;
     overflow: hidden;
+    @include text-l;
 }
 div{
     box-sizing:border-box;
     padding: 0;
     margin:0;
 }
-
+.clickable {
+    pointer-events: all;
+    cursor: pointer;
+}
 
 
 .interface{
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: grid;
+    pointer-events: none;
     grid-template-columns: auto 1fr auto auto auto;
     grid-template-rows: auto auto 1fr;
+    color: $text-color;
 
     & > div{
-        padding: $cell-padding;
+       // padding: $cell-padding;
     }
 
     // TOP PART OF INTERFACE
@@ -29,6 +39,8 @@ div{
         grid-column: 1/2;
         border-right: $gridline;
         border-bottom: $gridline;
+        padding: $cell-padding;
+
 
     }
     .about-top-area{
@@ -37,6 +49,9 @@ div{
     .about-btn{
         grid-column: 3/4;
         border-bottom: $gridline;
+        padding: $cell-padding;
+        text-align: right;
+
 
     }
     .top-right{
@@ -45,15 +60,72 @@ div{
         border-bottom: $gridline;
         border-left: $gridline;
     }
+
     .artist-btn{
         grid-column: 4/5;
         grid-row: 2/3;
         border-left: $gridline;
+        padding: $cell-padding;
+
+        &.active{
+            border-bottom: $gridline;
+        }
     }
     .artist-area{
         grid-column: 4/5;
         grid-row: 3/4;
+
         border-left: $gridline;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        @include text-m;
+        transition: transform 0.3s ease-in;
+        transform: translateX(100%);
+
+        &.open{
+            border-bottom: $gridline;
+            transform: translateX(0%);
+
+        }
+
+        .artistlist-entry{
+            padding-top: 0;
+            padding-bottom: 0;
+
+            &:first-of-type{
+                padding-top: $cell-padding;
+            }
+
+
+
+            .artist-name{
+                padding-left: $cell-padding;
+                padding-right: $cell-padding;
+
+
+                width: 100%;
+                height: auto;
+            }
+
+            .artist-artworks-list{
+                overflow-y: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease-in;
+
+                padding-left: $cell-padding;
+                padding-right: $cell-padding;
+
+                &.open{
+                    max-height: 50px;
+                    border-top: $gridline;
+                    border-bottom: $gridline;
+
+                }
+            }
+
+
+        }
+
     }
 
     .minimap{
@@ -61,7 +133,20 @@ div{
         grid-row: 4/5;
         border-left: $gridline;
         border-top: $gridline;
-        height: 300px;
+        height: 20vh;
+        width: 20vw;
+        background-size: cover;
+        background-image: url('../content/img/map-mini.png');
+        transition: all 0.3s ease-in;
+        position: relative;
+
+        .position-indicator{
+            position: absolute;
+            width: 20%;
+            height: 20%;
+            border: $gridline;
+            pointer-events: none;
+        }
     }
     
 }
@@ -84,23 +169,151 @@ div{
 
 
 .map-container{
-    display: none;
+    display: block;
+    position:fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     background-color: grey;
 
-    .map-draggable{
-        width: 100%;
-        height: auto;
-        background-color: red;
-        opacity: 0.5;
 
-        img {
-            min-height: 100vh;
-            min-width: 100vw;
-            object-fit: cover;
+
+    .map-draggable{
+        min-width: 100%;
+        min-height: 100%;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;  
+        width: 3000px;
+        height: auto;
+
+
+
+
+        .map-background{
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+
+        .artwork-thumbnails {
+            position: absolute;
+            top: 0;
+            left: 0;            
+            right: 0;
+            bottom: 0;
+
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+
+            .artwork-thumbnail{
+                position: absolute;
+                top: 30%;
+                left: 40%;
+                width: 20%;
+                height: auto;
+                cursor: pointer;
+
+                .thumbnail-image{
+                    width: 100%;
+                    height: auto;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+                .blend-image{
+                    mix-blend-mode: lighten;
+                }
+                .regular-image{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                }
+
+
+            }
+
+
+        }
+
+        .map-background{
+            img{
+                width: 100%;
+                height: auto;
+            }
         }
     }
+}
+
+
+.single-artwork-overlay{
+    color: $text-color;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 1;
+    @include text-m;
+
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
+
+    display: none;
+    &.open{
+        display: grid;
+    }
+
+    .topline-spacer{
+        height: 40px;
+        opacity: 0.5;
+        grid-column: 1 / 4;
+    }
+    
+    .gallery-container{
+
+    }
+
+    .artist-name{
+        padding: $cell-padding/3;
+
+        border-top: $gridline;
+    }
+
+    
+
+    .artwork-info{
+        display: grid;
+        grid-template-columns: 3fr 3fr 2fr;
+
+        div{
+            border: $gridline;
+            padding: $cell-padding/3;
+        }
+
+        .material{
+            grid-column: 1/3;
+        }
+    }
+
+
+
 }
