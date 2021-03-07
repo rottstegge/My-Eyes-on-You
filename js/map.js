@@ -1,6 +1,8 @@
 // implement map drag and zooming functionality
 var $ = require("jquery");
 
+
+
 $(function(){
     console.log("map.js ready");
     let mousedown = false;
@@ -15,7 +17,11 @@ $(function(){
     let draggableContainerWidth = $(draggableContainer).width();
     let draggableContainerHeight = $(draggableContainer).height();
 
+    let positionIndicator = $('.minimap .position-indicator');
+
     let previousMouseX, previousMouseY;
+
+    let miniMapNavSpeed = 2;
 
 
 
@@ -72,23 +78,33 @@ $(function(){
         let containerHeight = parseInt($(draggableContainer).height());
         let draggableWidth = parseInt($(draggable).width());
         let draggableHeight = parseInt($(draggable).height());
+        currentTop = parseInt($(draggable).css('top'));
+        currentLeft = parseInt($(draggable).css('left'));
 
         let newLeft = draggableWidth*(xPos/100);
         let newTop = draggableHeight*(yPos/100);
         newLeft = -1* constrain(newLeft, 0, draggableWidth - containerWidth);
         newTop = -1* constrain(newTop, 0, draggableHeight - containerHeight);
 
-        $(draggable).animate({
-            'left': newLeft,
-            'top': newTop
-        }, 2000);
-        updateMiniMap();
+        // calculate delta distance (pythagoras)
+        let dist = Math.sqrt( Math.pow((currentTop-newTop), 2) + Math.pow((currentLeft-newLeft), 2) );
+        let animduration = dist/(1000*miniMapNavSpeed);
+
+        gsap.to(draggable, 
+            {
+                left: newLeft, 
+                top: newTop, 
+                duration: animduration,
+                onUpdate: function(){
+                    updateMiniMap();
+                }
+            });
     }
 
 
     // Minimap Functionality
     $('.minimap').on("mousedown", function(event){
-        let indicator = $(this).find('.position-indicator');
+        let indicator = positionIndicator;
         let indicatorWidth = parseInt($(indicator).width());
         let indicatorHeight = parseInt($(indicator).height());
 
@@ -100,7 +116,6 @@ $(function(){
         let xPos = map(mouseX, 0, minimapWidth, 0, 100);
         let yPos = map(mouseY, 0, minimapHeight, 0, 100);
         moveMapTo(xPos, yPos);
-        console.log({xPos, yPos});
     });
 
     // updating is run when user moves on map
@@ -108,18 +123,14 @@ $(function(){
         // set size
         let indicatorSize = (draggableContainerWidth / draggableWidth * 100); // percentage vale
         indicatorSize = indicatorSize + "%";
-        console.log(indicatorSize);
-        // $('.position-indicator').width(indicatorSize);
-        // $('.position-indicator').height(indicatorSize);
 
         // set position
-        let draggablePosX = parseInt($('.map-draggable').css('left'));
-        let draggablePosY = parseInt($('.map-draggable').css('top'));
-
+        let draggablePosX = parseInt($(draggable).css('left'));
+        let draggablePosY = parseInt($(draggable).css('top'));
         let indicatorPosX = ((draggablePosX / draggableWidth * 100)*-1) + "%";
         let indicatorPosY = ((draggablePosY / draggableHeight * 100)*-1) + "%";
 
-        $('.position-indicator').css({
+        $(positionIndicator).css({
             left: indicatorPosX,
             top: indicatorPosY,
             width: indicatorSize,

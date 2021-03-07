@@ -21,7 +21,6 @@ $(function(){
             for(let artwork in artist.artworks){
                 console.log("artwork:" + artwork);             
             }
-
             $(artistList).append(newEntry);
         }
     }
