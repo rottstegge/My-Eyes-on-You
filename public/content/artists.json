@@ -1,15 +1,62 @@
 {
     "artists": [
       {
-        "name": "Luca Borsato",
+        "name": "Adrian Lopez Pena",
         "artworks": [
             {
-                "artwork_title": "Artwork One Title", 
-                "artwork_id": 1
+                "artwork_title": "Glove for Tadzio", 
+                "artwork_id": "9"
             },
             {
-                "artwork_title": "Artwork Two", 
-                "artwork_id": 2
+                "artwork_title": "Curtained Inlook (promotional incipit)", 
+                "artwork_id": "10"
+            },
+            {
+                "artwork_title": "Drift (flanks)", 
+                "artwork_id": "14"
+            }
+        ]
+      },
+      {
+        "name": "Hélène Padoux",
+        "artworks": [
+            {
+                "artwork_title": "Trusting Sugar; Care or performance", 
+                "artwork_id": "7"
+            }
+        ]
+      },      
+      {
+        "name": "Jung Min Lee",
+        "artworks": [
+            {
+                "artwork_title": "The Reaper, The Lock", 
+                "artwork_id": "5"
+            }
+        ]
+      },
+      {
+        "name": "Lennart Wolter",
+        "artworks": [
+            {
+                "artwork_title": "Spilled Demons III", 
+                "artwork_id": "2"
+            },
+            {
+                "artwork_title": "Spilled Demons II", 
+                "artwork_id": "3"
+            },      
+            {
+                "artwork_title": "Dream Catcher", 
+                "artwork_id": "6"
+            },
+            {
+                "artwork_title": "Come with me", 
+                "artwork_id": "8"
+            },
+            {
+                "artwork_title": "Come with me II", 
+                "artwork_id": "12"
             }
         ]
       },
@@ -17,33 +64,39 @@
         "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 1
+                "artwork_title": "19 Days in Paris", 
+                "artwork_id": "1"
             },
             {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 2
-            },
-            {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 3
+                "artwork_title": "Never take away my Freedom", 
+                "artwork_id": "15"
             }
         ]
-      },      
+      },
       {
-        "name": "Luca Borsato",
+        "name": "Marek Kochanowicz",
         "artworks": [
             {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 1
-            },
+                "artwork_title": "O.T.", 
+                "artwork_id": "11"
+            }
+        ]
+      },
+      {
+        "name": "Matthew Muir",
+        "artworks": [
             {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 2
-            },
+                "artwork_title": "Red Door 1", 
+                "artwork_id": "4"
+            }
+        ]
+      },
+      {
+        "name": "Simon Koza Mine",
+        "artworks": [
             {
-                "artwork_title": "Artwork Title", 
-                "artwork_id": 3
+                "artwork_title": "Splatters", 
+                "artwork_id": "13"
             }
         ]
       }
