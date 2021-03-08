@@ -171,24 +171,39 @@ $(function(){
     populateArtistsList();
 
     function populateArtistsList(){
-        var listEntryTemplate = $('.artistlist-entry-template');
+        var listEntryTemplate = $('.artistlist-entry.template');
         let artistList = $('.artist-area');
 
-        for (let artist in artistsJSON.artists) {
-            console.log({artist});             
+        console.log(artistsJSON);
+        console.log(artistsJSON.artists)
+        let artists = artistsJSON.artists
 
-            var newEntry = $(listEntryTemplate).clone();
-            $(newEntry).find('.artist-name').text(artist);
+        // Loop Through Artists
+        for(let i in artists){
+            let artist = artists[i];
+            let name = artist.name;
+            let artworks = artist.artworks;
 
-            let artworksList = $(newEntry).find('.artist-artworks-list')
-            console.log(artist["artworks"]);             
+            let artistEntry = listEntryTemplate.clone();
+            $(artistEntry).find('.artist-name').html(name);
+            $(artistEntry).removeClass('template');
+            let artworksList = $(artistEntry).find('.artist-artworks-list');
 
-            for(let artwork in artist.artworks){
-                console.log("artwork:" + artwork);             
+            // Loop through Artists Artworks
+            for (let q in artworks){
+                let  artwork = artworks[q];
+                let artworkTemplate = $(artworksList).find('.artwork.template');
+                let artworkEntry = $(artworkTemplate).clone();
+                $(artworkEntry).html(artwork.artwork_title);
+                $(artworkEntry).attr('artwork-id', artwork.artwork_id);
+                $(artworkEntry).removeClass('template');
+                $(artworkEntry).appendTo(artworksList);
             }
-            $(artistList).append(newEntry);
+            $(artistEntry).appendTo(artistList);
         }
     }
+
+   
 
 });
 },{"../public/content/artists.json":7,"jquery":6}],4:[function(require,module,exports){
@@ -220,7 +235,8 @@ $(function(){
         }
     });
 
-    $('.artist-name.btn').on("click", function(){
+    $('.artist-name.clickable').on("click", function(){
+        console.log("clicked artist name");
         let artworksList = $(this).siblings(".artist-artworks-list");
 
         if($(artworksList).hasClass('open')){
@@ -16014,58 +16030,60 @@ return jQuery;
 
 },{}],7:[function(require,module,exports){
 module.exports={
-    "artists": {
-
-      "Luca Borsato": {
+    "artists": [
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 1
+                "artwork_title": "Artwork One Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 2
+                "artwork_title": "Artwork Two", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 3
+                "artwork_title": "Three Title", 
+                "artwork_id": 3
             }
         ]
       },
-      "Helene Padoux": {
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 4
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 5
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 6
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 3
             }
         ]
-      },
-      "Further Name": {
+      },      
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 7
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 8
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 9
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 3
             }
         ]
       }
 
-    }
+    ]
   }
 
 

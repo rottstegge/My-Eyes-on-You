@@ -26,7 +26,8 @@ $(function(){
         }
     });
 
-    $('.artist-name.btn').on("click", function(){
+    $('.artist-name.clickable').on("click", function(){
+        console.log("clicked artist name");
         let artworksList = $(this).siblings(".artist-artworks-list");
 
         if($(artworksList).hasClass('open')){

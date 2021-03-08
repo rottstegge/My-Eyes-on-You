@@ -1,56 +1,58 @@
 {
-    "artists": {
-
-      "Luca Borsato": {
+    "artists": [
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 1
+                "artwork_title": "Artwork One Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 2
+                "artwork_title": "Artwork Two", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 3
+                "artwork_title": "Three Title", 
+                "artwork_id": 3
             }
         ]
       },
-      "Helene Padoux": {
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 4
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 5
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 6
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 3
             }
         ]
-      },
-      "Further Name": {
+      },      
+      {
+        "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 7
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 1
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 8
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 2
             },
             {
-                "artwork-title": "Artwork Title", 
-                "artwork-id": 9
+                "artwork_title": "Artwork Title", 
+                "artwork_id": 3
             }
         ]
       }
 
-    }
+    ]
   }
 
 
