@@ -19,7 +19,7 @@
             <div class="artistlist-entry template">
                 <div class="artist-name clickable">Artist Name</div>
                 <div class="artist-artworks-list">
-                    <div class="artwork template">Artwork Title</div>
+                    <div class="artwork clickable template">Artwork Title</div>
                 </div>
             </div>
 
@@ -38,9 +38,9 @@
             </div>
 
             <div class="artwork-thumbnails">
-                    <div class="artwork-thumbnail">
-                        <div class="thumbnail-image blend-image"><img draggable="false" src="content/img/1/a.jpeg"></div>
-                        <div class="thumbnail-image regular-image"><img draggable="false" src="content/img/1/a.jpeg"></div>
+                    <div class="artwork-thumbnail template">
+                        <div class="thumbnail-image blend-image"><img draggable="false" src=""></div>
+                        <div class="thumbnail-image regular-image"><img draggable="false" src=""></div>
                     </div>
             </div>
         </div>
@@ -65,13 +65,22 @@
                 <div class="series">Pop Stars 20177</div>
                 <div class="date">2020</div>
                 <div class="material">high-gloss-paper</div>
-                <div class="size">42x59cm</div>
+                <div class="dimensions">42x59cm</div>
             </div>
         </div>
 
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-    <script src="js/app.bundle.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="js/populate-content.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/map.js"></script>
+
+
 </body>
 </html>

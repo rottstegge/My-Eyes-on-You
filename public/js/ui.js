@@ -1,11 +1,10 @@
 console.log("ui.js loaded");
 
-var $ = require("jquery");
-var gsap = require("gsap");
 
 
 $(function(){
-    
+    let artistArea = $('.artist-area');
+
 
 
 
@@ -15,7 +14,6 @@ $(function(){
     // Artist Section
 
     $('.artist-btn').on("click", function(){
-        let artistArea = $('.artist-area');
         console.log("clicked");
         if($(artistArea).hasClass('open')){
             $(artistArea).removeClass('open');
@@ -26,20 +24,21 @@ $(function(){
         }
     });
 
-    $('.artist-name.clickable').on("click", function(){
+    $('.artist-area').on("click", ".artist-name.clickable", function(){
         console.log("clicked artist name");
         let artworksList = $(this).siblings(".artist-artworks-list");
 
         if($(artworksList).hasClass('open')){
             $(artworksList).removeClass('open');
         } else {
+            $(artistArea).find('.artist-artworks-list.open').removeClass('open'); // if theres one open, close it
             $(artworksList).addClass('open');
         }
     })
 
 
     // Opening Artworks
-    $('.artwork-thumbnail').on("mousedown", function(){
+    $('.artwork-thumbnails').on("mousedown",  ".artwork-thumbnail", function(){
         // don't do anything if mouse moves after down
         let mouseMoved = false;
         $(this).on("mousemove", function(){
@@ -49,22 +48,21 @@ $(function(){
            $(this).off("mousemove"); // unbind mousemove handler
            $(this).off("mouseup"); // unbind mousemove handler
            if (!mouseMoved) {
-            openArtwork();
+                let id = $(this).attr("artwork-id");
+                console.log(id);
+                openArtwork(id);
            }
         })        
     })
 
 
 
-
-
     // Logic
     function openArtwork(id){
-        $('.single-artwork-overlay').addClass('open');
-        $('.minimap').css({
-            height: '10vh',
-            width: '10vw'
-        })
+        populateOverlayContent(id);
+        let overlay = $('.single-artwork-overlay');
+        $(overlay).addClass('open');
+
         $('.single-artwork-overlay').on('click', function(){
             $(this).removeClass('open');
             $('.minimap').css({
@@ -72,9 +70,8 @@ $(function(){
                 width: ''
             })
         });
+    
     };
-
-
 
 })
 

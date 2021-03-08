@@ -1,7 +1,4 @@
 // implement map drag and zooming functionality
-var $ = require("jquery");
-
-
 
 $(function(){
     console.log("map.js ready");

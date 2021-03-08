@@ -117,8 +117,18 @@ div{
                 padding-left: $cell-padding;
                 padding-right: $cell-padding;
 
+                .artwork{
+
+                    &:first-of-type{
+                        padding-top: $cell-padding;
+                    }
+                    &:last-of-type{
+                        padding-bottom: $cell-padding;
+                    }
+                }
+
                 &.open{
-                    max-height: 50px;
+                    max-height: 400px;
                     border-top: $gridline;
                     border-bottom: $gridline;
 
@@ -225,9 +235,9 @@ div{
 
             .artwork-thumbnail{
                 position: absolute;
-                top: 30%;
-                left: 40%;
-                width: 20%;
+                // top: 30%;
+                // left: 40%;
+                // width: 20%;
                 height: auto;
                 cursor: pointer;
 

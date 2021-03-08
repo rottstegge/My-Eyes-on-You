@@ -25,7 +25,7 @@ gulp.task('styles', async function(){
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(sassFiles, gulp.series('styles'));
-  gulp.watch('js/**/*.js', gulp.series('scripts'));
+  // gulp.watch('js/**/*.js', gulp.series('scripts'));
 
 });
  

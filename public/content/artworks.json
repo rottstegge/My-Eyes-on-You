@@ -1,44 +1,59 @@
 {
-    "artworks": {
+    "artworks": [
 
-      "1": {
-        "artist-name": "Helene Padoux",
-        "artwork-title": "Helene Padoux",
+      {
+        "id": "1",
+        "pos_x": 20,
+        "pos_y": 10,
+        "width": 5,
+        "artist_name": "Helene Padoux",
+        "title": "Helene Padoux",
         "material": "Material and so on",
+        "dimensions": "XZYZ Dimensions",
+        "date": "2020",
         "images": [
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 1
+                "image_url": "a.jpeg", 
+                "image_caption": 1
             },
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 2
+                "image_url": "b.jpeg", 
+                "image_caption": 2
             },
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 3
+                "image_url": "c.jpeg", 
+                "image_caption": 3
             }
         ]
       },
-      "2": {
-        "artist-name": "Helene Padoux",
-        "artwork-title": "Helene Padoux",
+      {
+        "id": "2",
+        "pos_x": 70,
+        "pos_y": 50,
+        "width": 9,
+        "artist_name": "Helene Padoux",
+        "artwork_title": "Helene Padoux",
         "material": "Material and so on",
+        "dimensions": "XZ32Z Dimensions",
+        "date": "2020",
         "images": [
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 4
+                "image_url": "a.jpeg", 
+                "image_caption": 1
             },
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 5
+                "image_url": "b.jpeg", 
+                "image_caption": 2
             },
             {
-                "image-url": "Artwork Title", 
-                "image-caption": 6
+                "image_url": "c.jpeg", 
+                "image_caption": 3
             }
         ]
       }
+
+
+      
 
 
 
@@ -48,7 +63,7 @@
 
 
       
-    }
+    ]
   }
 
 
