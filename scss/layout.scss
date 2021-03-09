@@ -49,6 +49,7 @@ div{
         border-bottom: $gridline;
     }
     .about-btn{
+        
         grid-column: 3/4;
         border-bottom: $gridline;
         padding: $cell-padding;
@@ -61,6 +62,15 @@ div{
         grid-row: 1/1;
         border-bottom: $gridline;
         border-left: $gridline;
+        padding: $cell-padding;
+        .close-btn{
+            transform: translateX(150%);
+            transition: transform 0.7s ease-in;
+            display: inline-block;
+            &.visible{
+                transform: translateX(0);
+            }
+        }
     }
     
     .artist-btn{

@@ -6,7 +6,7 @@ $(function(){
     let artistArea = $('.artist-area');
     let minimap = $('.minimap');
     let overlay = $('.single-artwork-overlay');
-
+    let currentlyOpenArtworkID = null;
 
 
 
@@ -71,6 +71,14 @@ $(function(){
     })
 
 
+    $('.close-btn').on("click", function(){
+        closeArtwork(currentlyOpenArtworkID);
+    })
+
+
+
+
+
     // Logic
     function openArtwork(id){
         // get content and open
@@ -94,7 +102,6 @@ $(function(){
               console.log("initiated slick slider");
           });
 
-
         // shrink minimap
         let oldHeight = $(minimap).outerHeight();
         let oldWidth = $(minimap).outerWidth();
@@ -106,7 +113,20 @@ $(function(){
                 height: newHeight, 
                 duration: 0.3
         });
+        $('.close-btn').addClass('visible');
+        currentlyOpenArtworkID = id;
     };
+
+
+    function closeArtwork(id){
+        galleryToThumbnailTransition(id);
+        $(overlay).removeClass('open');
+        let galleryContainer = $('.gallery-container');
+        $(galleryContainer).slick('unslick');
+        $(galleryContainer).css('opacity', 0);
+
+        $('.close-btn').removeClass('visible');
+    }
 
 
     function teaseArtwork(id){
@@ -134,6 +154,32 @@ $(function(){
         }
     }
 
+
+    function galleryToThumbnailTransition(id){
+        let mapImage = $('.artwork-thumbnail[artwork-id='+id+']');
+        let goalLeft = $(mapImage).attr('data-left') + "%";
+        let goalTop = $(mapImage).attr('data-top') + "%";
+        let goalWidth = $(mapImage).attr('data-width') + "%";
+        let solidImage = $(mapImage).find('.regular-image');
+
+
+
+        let tl = gsap.timeline({defaults: {duration: 1, ease: "easeOut"} });
+
+        tl.add("start")
+        .set(mapImage, {
+            opacity: 1, 
+        }, "start")
+        .to(mapImage, {
+            left: goalLeft,
+            top: goalTop,
+            width: goalWidth
+        }, "start")
+        .set(solidImage, {
+            opacity: 0
+        }, "start");
+
+    }
 
     
     function thumbnailToGalleryTransition(id){

@@ -255,7 +255,14 @@ div {
     grid-column: 4/5;
     grid-row: 1/1;
     border-bottom: 1.5px solid white;
-    border-left: 1.5px solid white; }
+    border-left: 1.5px solid white;
+    padding: 2.5rem; }
+    .interface .top-right .close-btn {
+      transform: translateX(150%);
+      transition: transform 0.7s ease-in;
+      display: inline-block; }
+      .interface .top-right .close-btn.visible {
+        transform: translateX(0); }
   .interface .artist-btn {
     grid-column: 4/5;
     grid-row: 2/3;
