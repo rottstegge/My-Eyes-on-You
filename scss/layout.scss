@@ -327,6 +327,7 @@ div{
     .gallery-container{
         overflow-x: hidden;
         width: 100%;
+        opacity: 0; // wil be revealed by js
 
         .slick-list,
         .slick-track {

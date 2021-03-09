@@ -425,7 +425,8 @@ div {
       padding-bottom: 2.5rem; }
   .single-artwork-overlay .gallery-container {
     overflow-x: hidden;
-    width: 100%; }
+    width: 100%;
+    opacity: 0; }
     .single-artwork-overlay .gallery-container .slick-list,
     .single-artwork-overlay .gallery-container .slick-track {
       height: 100%; }
