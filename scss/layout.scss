@@ -31,19 +31,19 @@ div{
     grid-template-columns: auto 1fr auto auto auto;
     grid-template-rows: auto auto 1fr;
     color: $text-color;
-
+    
     & > div{
-       // padding: $cell-padding;
+        // padding: $cell-padding;
     }
-
+    
     // TOP PART OF INTERFACE
     .brand{
         grid-column: 1/2;
         border-right: $gridline;
         border-bottom: $gridline;
         padding: $cell-padding;
-
-
+        
+        
     }
     .about-top-area{
         border-bottom: $gridline;
@@ -53,8 +53,8 @@ div{
         border-bottom: $gridline;
         padding: $cell-padding;
         text-align: right;
-
-
+        
+        
     }
     .top-right{
         grid-column: 4/5;
@@ -62,13 +62,13 @@ div{
         border-bottom: $gridline;
         border-left: $gridline;
     }
-
+    
     .artist-btn{
         grid-column: 4/5;
         grid-row: 2/3;
         border-left: $gridline;
         padding: $cell-padding;
-
+        
         &.active{
             border-bottom: $gridline;
         }
@@ -76,7 +76,7 @@ div{
     .artist-area{
         grid-column: 4/5;
         grid-row: 3/4;
-
+        
         border-left: $gridline;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -85,42 +85,42 @@ div{
         transform: translateX(100%);
         width: 0;
         overflow: hidden;
-
+        
         &.open{
             border-bottom: $gridline;
             transform: translateX(0%);
-
+            
         }
-
+        
         .artistlist-entry{
             padding-top: 0;
             padding-bottom: 0;
-
+            
             &:first-of-type{
                 padding-top: $cell-padding;
             }
-
-
-
+            
+            
+            
             .artist-name{
                 padding-left: $cell-padding;
                 padding-right: $cell-padding;
-
-
+                
+                
                 width: 100%;
                 height: auto;
             }
-
+            
             .artist-artworks-list{
                 overflow-y: hidden;
                 max-height: 0;
                 transition: max-height 0.3s ease-in;
-
+                
                 padding-left: $cell-padding;
                 padding-right: $cell-padding;
-
+                
                 .artwork{
-
+                    
                     &:first-of-type{
                         padding-top: $cell-padding;
                     }
@@ -128,20 +128,20 @@ div{
                         padding-bottom: $cell-padding;
                     }
                 }
-
+                
                 &.open{
                     max-height: 400px;
                     border-top: $gridline;
                     border-bottom: $gridline;
-
+                    
                 }
             }
-
-
+            
+            
         }
-
+        
     }
-
+    
     .minimap{
         
         border-left: $gridline;
@@ -151,7 +151,7 @@ div{
         position: absolute;
         right: 0;
         bottom: 0;
-
+        
         .position-indicator{
             position: absolute;
             width: 20%;
@@ -192,9 +192,9 @@ div{
     margin: 0;
     padding: 0;
     background-color: grey;
-
-
-
+    
+    
+    
     .map-draggable{
         min-width: 100%;
         min-height: 100%;
@@ -204,24 +204,24 @@ div{
         left: 0;  
         width: 3000px;
         height: auto;
-
-
-
-
+        
+        
+        
+        
         .map-background{
             position: relative;
             width: 100%;
             height: auto;
         }
-
-
+        
+        
         .artwork-thumbnails {
             position: absolute;
             top: 0;
             left: 0;            
             right: 0;
             bottom: 0;
-
+            
             -webkit-user-select: none;
             -khtml-user-select: none;
             -moz-user-select: none;
@@ -232,7 +232,7 @@ div{
             -moz-user-drag: none;
             -o-user-drag: none;
             user-drag: none;
-
+            
             .artwork-thumbnail{
                 position: absolute;
                 // top: 30%;
@@ -240,7 +240,7 @@ div{
                 // width: 20%;
                 height: auto;
                 cursor: pointer;
-
+                
                 .thumbnail-image{
                     width: 100%;
                     height: auto;
@@ -258,13 +258,13 @@ div{
                     left: 0;
                     opacity: 0;
                 }
-
-
+                
+                
             }
-
-
+            
+            
         }
-
+        
         .map-background{
             img{
                 width: 100%;
@@ -276,39 +276,85 @@ div{
 
 
 .single-artwork-overlay{
-    background-color: rgba(255, 255, 255, 0.343);
+    background-color: rgba($color: black, $alpha: 0.0);
     color: $text-color;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
+    
     opacity: 1;
     @include text-m;
-
+    
     grid-template-columns: auto 1fr auto;
     grid-template-rows: auto 1fr auto;
-
+    transition: background-color 0.3s ease-in;
     display: none;
+
     &.open{
         display: grid;
+        background-color: rgba($color: black, $alpha: 0.5);
     }
-
+        
+    &.tease{
+        display: grid;
+        pointer-events: none;
+        .gallery-container, .galleryindicator{
+            visibility: hidden;
+        }
+        
+    }
+    
+    
     .topline-spacer{
         height: 40px;
         opacity: 0.5;
         grid-column: 1 / 4;
     }
     
+    .sidebar{
+        position:relative;
+        .galleryindicator{
+            position:absolute;
+            bottom: 0;
+            right: 0;
+            padding-right: $cell-padding;
+            padding-bottom: $cell-padding;
+            
+        }
+    }
     .gallery-container{
-        background-color: rgba(43, 155, 240, 0.74);
+        overflow-x: hidden;
+        width: 100%;
 
+        .slick-list,
+        .slick-track {
+            height: 100%;
+        }
+        .slick-prev{
+            position:absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 2;
+            opacity: 0;
+        }
+        .slick-next{
+            position:absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 2;
+            opacity: 0;
+        }
+        
         .gallery-item{
             height: 100%;
-            max-width: 60vw;
-            width: auto;
-
+            width: 100vw;
+            
             img{
                 height: 100%;
                 width: auto;
@@ -318,33 +364,37 @@ div{
                 width: 100%;
                 height: auto;
             }
- 
+            
         }
-
+        
     }
-
-    .artist-name{
-        padding: $cell-padding/3;
-
-        border-top: $gridline;
-    }
-
     
-
+    .bottom-left{
+        text-align: right;
+        .artist-name{
+            display: inline-block;
+            padding: $cell-padding;
+            border-top: $gridline;
+        }
+        
+    }
+    
+    
+    
     .artwork-info{
         display: grid;
         grid-template-columns: 3fr 3fr 2fr;
-
+        
         div{
             border: $gridline;
             padding: $cell-padding/3;
         }
-
+        
         .material{
             grid-column: 1/3;
         }
     }
-
-
-
+    
+    
+    
 }

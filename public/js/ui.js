@@ -52,42 +52,63 @@ $(function(){
                 openArtwork(id);
            }
         })        
-    })
+    });
 
+    $('.artwork-thumbnails').on("mouseenter",  ".artwork-thumbnail", function(){
+        // don't do anything if mouse moves after down
+        let id = $(this).attr("artwork-id");
+        teaseArtwork(id);
+    })
+    $('.artwork-thumbnails').on("mouseleave",  ".artwork-thumbnail", function(){
+        // don't do anything if mouse moves after down
+        let id = $(this).attr("artwork-id");
+        unteaseArtwork();
+    })
 
 
     // Logic
     function openArtwork(id){
+        // get content and open
         populateOverlayContent(id);
-
         let overlay = $('.single-artwork-overlay');
         $(overlay).addClass('open');
+        $(overlay).removeClass('tease');
 
+        // init gallery
         $(overlay).find('.gallery-container').slick({
-            speed: 300,
-            slidesToShow: 1,
-            centerMode: true,
-            variableWidth: true
+            speed: 500,
+            infinite: false,
+            adaptiveHeight: true,
+            variableWidth: true,
+            lazyLoad: 'ondemand'
           });
 
-
-        
         // shrink minimap
         let oldHeight = $(minimap).outerHeight();
         let oldWidth = $(minimap).outerWidth();
         let newHeight = $('.single-artwork-overlay .metainfo-container').outerHeight();
         let newWidth = oldWidth / (oldHeight / newHeight);
-
         gsap.to(minimap, 
             {
                 width: newWidth, 
                 height: newHeight, 
                 duration: 0.3
         });
-
-        
     };
 
+
+    function teaseArtwork(id){
+        populateOverlayContent(id);
+        let overlay = $('.single-artwork-overlay');
+        $(overlay).addClass('tease');
+        console.log("tease:" +  id);
+    }
+    function unteaseArtwork(){
+        let overlay = $('.single-artwork-overlay');
+        $(overlay).removeClass('tease');
+        console.log("untease");
+
+    }
 
 
 

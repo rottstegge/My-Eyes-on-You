@@ -54,7 +54,12 @@ $(function(){
             
             let newArtwork = $(artworkTemplate).clone();
             $(newArtwork)
-            .attr('artwork-id', artwork.id)
+            .attr({
+                'artwork-id': artwork.id,
+                'data-left': artwork.pos_x,
+                'data-top': artwork.pos_y,
+                'data-width': artwork.width
+            })
             .css({
                 left: `${artwork.pos_x}%`,
                 top: `${artwork.pos_y}%`,
@@ -66,7 +71,7 @@ $(function(){
             $(newArtwork).appendTo(artworkThumbnails);
         }
     }
-    
+
 });
 
 
@@ -80,7 +85,7 @@ function populateOverlayContent(id){
     let overlay = $('.single-artwork-overlay');
     
     // enter metadata
-    $(overlay).find('.artist-name').html(artwork.title);
+    $(overlay).find('.artist-name').html(artwork.artist_name);
     $(overlay).find('.title').html(artwork.title);
     $(overlay).find('.series').html(artwork.series);
     $(overlay).find('.date').html(artwork.date);
@@ -94,10 +99,11 @@ function populateOverlayContent(id){
         image = artwork.images[image];
         let htmlString = `
         <div class="gallery-item">
-            <img src="content/img/${id}/${image.image_url}-s.jpg" alt="${image.image_caption}" data-src="content/img/${id}/${image.image_url}-l.jpg">
+            <img class="lazy" src="content/img/${id}/${image.image_url}-s.jpg" alt="${image.image_caption}" data-src="content/img/${id}/${image.image_url}-l.jpg">
         </div>`;
 
         let newItem = $(htmlString);
         $(galleryContainer).append(newItem);
     }
+    $('.lazy').Lazy();
 }

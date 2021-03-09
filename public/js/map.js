@@ -135,8 +135,6 @@ $(function(){
 
     updateMiniMap();
 
-
-
 })
 
 

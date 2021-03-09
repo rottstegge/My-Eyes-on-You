@@ -390,7 +390,7 @@ div {
       height: auto; }
 
 .single-artwork-overlay {
-  background-color: rgba(255, 255, 255, 0.343);
+  background-color: rgba(0, 0, 0, 0);
   color: white;
   position: fixed;
   top: 0;
@@ -401,28 +401,65 @@ div {
   font-size: 3.5rem;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: auto 1fr auto;
+  transition: background-color 0.3s ease-in;
   display: none; }
   .single-artwork-overlay.open {
-    display: grid; }
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .single-artwork-overlay.tease {
+    display: grid;
+    pointer-events: none; }
+    .single-artwork-overlay.tease .gallery-container, .single-artwork-overlay.tease .galleryindicator {
+      visibility: hidden; }
   .single-artwork-overlay .topline-spacer {
     height: 40px;
     opacity: 0.5;
     grid-column: 1 / 4; }
+  .single-artwork-overlay .sidebar {
+    position: relative; }
+    .single-artwork-overlay .sidebar .galleryindicator {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-right: 2.5rem;
+      padding-bottom: 2.5rem; }
   .single-artwork-overlay .gallery-container {
-    background-color: rgba(43, 155, 240, 0.74); }
+    overflow-x: hidden;
+    width: 100%; }
+    .single-artwork-overlay .gallery-container .slick-list,
+    .single-artwork-overlay .gallery-container .slick-track {
+      height: 100%; }
+    .single-artwork-overlay .gallery-container .slick-prev {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 2;
+      opacity: 0; }
+    .single-artwork-overlay .gallery-container .slick-next {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 2;
+      opacity: 0; }
     .single-artwork-overlay .gallery-container .gallery-item {
       height: 100%;
-      max-width: 60vw;
-      width: auto; }
+      width: 100vw; }
       .single-artwork-overlay .gallery-container .gallery-item img {
         height: 100%;
         width: auto; }
       .single-artwork-overlay .gallery-container .gallery-item img.landscape {
         width: 100%;
         height: auto; }
-  .single-artwork-overlay .artist-name {
-    padding: 0.83333rem;
-    border-top: 1.5px solid white; }
+  .single-artwork-overlay .bottom-left {
+    text-align: right; }
+    .single-artwork-overlay .bottom-left .artist-name {
+      display: inline-block;
+      padding: 2.5rem;
+      border-top: 1.5px solid white; }
   .single-artwork-overlay .artwork-info {
     display: grid;
     grid-template-columns: 3fr 3fr 2fr; }
