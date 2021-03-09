@@ -83,6 +83,8 @@ div{
         @include text-m;
         transition: transform 0.3s ease-in;
         transform: translateX(100%);
+        width: 0;
+        overflow: hidden;
 
         &.open{
             border-bottom: $gridline;
@@ -141,16 +143,14 @@ div{
     }
 
     .minimap{
-        grid-column: 3/5;
-        grid-row: 4/5;
+        
         border-left: $gridline;
         border-top: $gridline;
-        height: 20vh;
-        width: 20vw;
         background-size: cover;
         background-image: url('../content/img/map-mini.png');
-        transition: all 0.3s ease-in;
-        position: relative;
+        position: absolute;
+        right: 0;
+        bottom: 0;
 
         .position-indicator{
             position: absolute;
@@ -276,6 +276,7 @@ div{
 
 
 .single-artwork-overlay{
+    background-color: rgba(255, 255, 255, 0.343);
     color: $text-color;
     position: fixed;
     top: 0;
@@ -301,6 +302,24 @@ div{
     }
     
     .gallery-container{
+        background-color: rgba(43, 155, 240, 0.74);
+
+        .gallery-item{
+            height: 100%;
+            max-width: 60vw;
+            width: auto;
+
+            img{
+                height: 100%;
+                width: auto;
+            }
+            
+            img.landscape{
+                width: 100%;
+                height: auto;
+            }
+ 
+        }
 
     }
 

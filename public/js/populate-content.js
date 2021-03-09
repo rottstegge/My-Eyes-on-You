@@ -49,8 +49,6 @@ $(function(){
         let artworkTemplate = $('.artwork-thumbnail.template');
         let artworkThumbnails = $('.artwork-thumbnails');
         
-        
-        
         for(let i in artworks){
             let artwork = artworks[i];
             
@@ -63,35 +61,43 @@ $(function(){
                 width: `${artwork.width}%`,
             });
             $(newArtwork).removeClass('template');
-            $(newArtwork).find('img').attr("src", `content/img/${artwork.id}/a.jpeg`);
+            $(newArtwork).find('img').attr("src", `content/img/${artwork.id}/a-m.jpg`);
             
             $(newArtwork).appendTo(artworkThumbnails);
         }
     }
+    
 });
 
 
 
 // global function to be used by other js files
 function populateOverlayContent(id){
-    
     if(id == undefined || id == null){return;}
     id = String(id);
     var artwork = artworks.find(artwork=>artwork.id === id);
-    console.log({artwork});
-    
-    console.log(artwork.date);
-    
-    
     
     let overlay = $('.single-artwork-overlay');
     
     // enter metadata
     $(overlay).find('.artist-name').html(artwork.title);
     $(overlay).find('.title').html(artwork.title);
-    $(overlay).find('.title').html(artwork.title);
     $(overlay).find('.series').html(artwork.series);
     $(overlay).find('.date').html(artwork.date);
     $(overlay).find('.material').html(artwork.material);
     $(overlay).find('.dimensions').html(artwork.dimensions);
+
+    let galleryContainer = $('.gallery-container');
+    $(galleryContainer).html('');
+
+    for (let image in artwork.images){
+        image = artwork.images[image];
+        let htmlString = `
+        <div class="gallery-item">
+            <img src="content/img/${id}/${image.image_url}-s.jpg" alt="${image.image_caption}" data-src="content/img/${id}/${image.image_url}-l.jpg">
+        </div>`;
+
+        let newItem = $(htmlString);
+        $(galleryContainer).append(newItem);
+    }
 }

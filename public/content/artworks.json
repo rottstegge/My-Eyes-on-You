@@ -3,55 +3,170 @@
 
       {
         "id": "1",
-        "pos_x": 20,
+        "pos_x": 10,
         "pos_y": 10,
         "width": 5,
-        "artist_name": "Helene Padoux",
-        "title": "Helene Padoux",
-        "material": "Material and so on",
-        "dimensions": "XZYZ Dimensions",
-        "date": "2020",
+        "artist_name": "Luca Borsato",
+        "title": "19 Days in Paris or how we became lovers ",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
         "images": [
             {
-                "image_url": "a.jpeg", 
+                "image_url": "a", 
                 "image_caption": 1
             },
             {
-                "image_url": "b.jpeg", 
+                "image_url": "b", 
                 "image_caption": 2
-            },
-            {
-                "image_url": "c.jpeg", 
-                "image_caption": 3
             }
         ]
       },
+
       {
         "id": "2",
-        "pos_x": 70,
-        "pos_y": 50,
+        "pos_x": 20,
+        "pos_y": 10,
         "width": 9,
-        "artist_name": "Helene Padoux",
-        "artwork_title": "Helene Padoux",
+        "artist_name": "Lennart Wolter",
+        "title": "Spilled Demons III",
         "material": "Material and so on",
         "dimensions": "XZ32Z Dimensions",
         "date": "2020",
         "images": [
             {
-                "image_url": "a.jpeg", 
+                "image_url": "a", 
                 "image_caption": 1
             },
             {
-                "image_url": "b.jpeg", 
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+
+      {
+        "id": "3",
+        "pos_x": 30,
+        "pos_y": 10,
+        "width": 9,
+        "artist_name": "Lennart Wolter",
+        "title": "Spilled Demons II",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
                 "image_caption": 2
             },
             {
-                "image_url": "c.jpeg", 
+                "image_url": "c", 
+                "image_caption": 2
+            }
+        ]
+      },
+
+      {
+        "id": "4",
+        "pos_x": 40,
+        "pos_y": 10,
+        "width": 9,
+        "artist_name": "Matthew Muir",
+        "title": "Red Door",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+
+      {
+        "id": "5",
+        "pos_x": 50,
+        "pos_y": 10,
+        "width": 9,
+        "artist_name": "Jung Min Lee",
+        "title": "The Reaper, the Lock",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            },
+            {
+                "image_url": "c", 
                 "image_caption": 3
             }
         ]
-      }
+      },
 
+      {
+        "id": "6",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 9,
+        "artist_name": "Lennart Wolter",
+        "title": "Dream Catcher",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+
+
+      {
+        "id": "7",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 9,
+        "artist_name": "Hélène Padoux",
+        "title": "Trusting Sugar, care or perfomance",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            },
+            {
+                "image_url": "c", 
+                "image_caption": 2
+            }
+        ]
+      }
 
       
 

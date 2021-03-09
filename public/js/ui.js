@@ -4,6 +4,7 @@ console.log("ui.js loaded");
 
 $(function(){
     let artistArea = $('.artist-area');
+    let minimap = $('.minimap');
 
 
 
@@ -14,7 +15,6 @@ $(function(){
     // Artist Section
 
     $('.artist-btn').on("click", function(){
-        console.log("clicked");
         if($(artistArea).hasClass('open')){
             $(artistArea).removeClass('open');
             $(this).removeClass('active');
@@ -25,7 +25,6 @@ $(function(){
     });
 
     $('.artist-area').on("click", ".artist-name.clickable", function(){
-        console.log("clicked artist name");
         let artworksList = $(this).siblings(".artist-artworks-list");
 
         if($(artworksList).hasClass('open')){
@@ -60,18 +59,58 @@ $(function(){
     // Logic
     function openArtwork(id){
         populateOverlayContent(id);
+
         let overlay = $('.single-artwork-overlay');
         $(overlay).addClass('open');
 
-        $('.single-artwork-overlay').on('click', function(){
-            $(this).removeClass('open');
-            $('.minimap').css({
-                height: '',
-                width: ''
-            })
+        $(overlay).find('.gallery-container').slick({
+            speed: 300,
+            slidesToShow: 1,
+            centerMode: true,
+            variableWidth: true
+          });
+
+
+        
+        // shrink minimap
+        let oldHeight = $(minimap).outerHeight();
+        let oldWidth = $(minimap).outerWidth();
+        let newHeight = $('.single-artwork-overlay .metainfo-container').outerHeight();
+        let newWidth = oldWidth / (oldHeight / newHeight);
+
+        gsap.to(minimap, 
+            {
+                width: newWidth, 
+                height: newHeight, 
+                duration: 0.3
         });
-    
+
+        
     };
+
+
+
+
+    // making the grids match
+    function setLayoutAlignment(){
+        let brand = $('.brand');
+        let singleArtworkOverlay = $('.single-artwork-overlay');
+        console.log($(brand).height());
+
+
+        // layout for minimap
+        let ratio = $('.map-background').outerWidth() /  $('.map-background').outerHeight();
+        let newWidth = $('.artist-btn').outerWidth() + $('.about-btn').outerWidth();
+        $(minimap).width(newWidth);
+        $(minimap).height(newWidth/ratio);
+
+
+        // layout for overlay
+        $(singleArtworkOverlay).find('.topline-spacer').height($(brand).outerHeight());
+        $(singleArtworkOverlay).find('.sidebar').width($(brand).outerWidth());
+
+    }
+    setLayoutAlignment();
 
 })
 

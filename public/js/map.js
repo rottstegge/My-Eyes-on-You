@@ -27,14 +27,12 @@ $(function(){
     $('.map-draggable').on("mousedown", function(event){
         event.stopPropagation();
         mousedown = true;
-        console.log("mousedown");
         previousMouseX = event.pageX;
         previousMouseY = event.pageY;
     });
     $('.map-draggable').on("mouseup", function(event){
         event.stopPropagation();
         mousedown = false;
-        console.log("mouseup");
     });
 
     $('.map-container').on("mousemove", function(event){
