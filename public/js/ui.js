@@ -7,6 +7,7 @@ $(function(){
     let minimap = $('.minimap');
     let overlay = $('.single-artwork-overlay');
     let currentlyOpenArtworkID = null;
+    let aboutArea = $('.about-area');
 
 
 
@@ -16,17 +17,31 @@ $(function(){
     // Artist Section
 
     $('.artist-btn').on("click", function(){
+        // if about Area is open, close it
+        if($(aboutArea).hasClass('open')){
+            console.log("its open, lets close");
+            closeAboutArea();
+        }
+                
         if($(artistArea).hasClass('open')){
+            var tl = gsap.timeline();
+            tl.to(artistArea, {height: "0", duration: 0.25})
+                .to(artistArea, {width: 0, duration: 0.25});
             $(artistArea).removeClass('open');
             $(this).removeClass('active');
         } else {
             $(artistArea).addClass('open');
+            var tl = gsap.timeline();
+            tl.to(artistArea, {width: $(minimap).width(), duration: 0.25})
+                .to(artistArea, {height: "100vh", duration: 0.25});
             $(this).addClass('active');
         }
     });
 
     $('.artist-area').on("click", ".artist-name.clickable", function(){
         let artworksList = $(this).siblings(".artist-artworks-list");
+
+
 
         if($(artworksList).hasClass('open')){
             $(artworksList).removeClass('open');
@@ -36,6 +51,14 @@ $(function(){
         }
     })
 
+    $('.about-btn').on('click', function(){
+
+        if($(aboutArea).hasClass('open')){
+            closeAboutArea();
+        } else {
+            openAboutArea();
+        }
+    })
 
     // Opening Artworks
     $('.artwork-thumbnails').on("mousedown",  ".artwork-thumbnail", function(){
@@ -87,19 +110,26 @@ $(function(){
         $(overlay).removeClass('tease');
         $(overlay).addClass('open');
 
+        // close ArtistList if its open
+        if($(artistArea).hasClass('open')){
+            $('.artist-btn').trigger('click');
+        }
+        if($(aboutArea).hasClass('open')){
+            console.log("its open, lets close");
+            closeAboutArea();
+        }
+
         // init gallery, trigger transition once done
         let galleryContainer = $('.gallery-container');
-        $(galleryContainer).on('init', function(){
-            thumbnailToGalleryTransition(id);
-        })
+        thumbnailToGalleryTransition(id);
+        
+        // init gallery
         $(galleryContainer).slick({
             speed: 500,
             infinite: false,
             adaptiveHeight: true,
             variableWidth: true,
             lazyLoad: 'ondemand'
-          }).on('reInit', function(){
-              console.log("initiated slick slider");
           });
 
         // shrink minimap
@@ -113,23 +143,49 @@ $(function(){
                 height: newHeight, 
                 duration: 0.3
         });
-        $('.close-btn').addClass('visible');
+
+        // show close button, remove other buttons
+        gsap.set('.top-right .close-btn', {opacity: 1});
+        gsap.to('.top-right .close-btn', {x: 0, duration: 0.5});
+        gsap.to('.artist-btn .inner', {x: "150%", duration: 0.5});
+        gsap.to('.about-btn .inner', {y: "-150%", duration: 0.5});
+
+
         currentlyOpenArtworkID = id;
     };
 
 
-    function closeArtwork(id){
-        galleryToThumbnailTransition(id);
+    function closeArtwork(){
+        galleryToThumbnailTransition();
         $(overlay).removeClass('open');
         let galleryContainer = $('.gallery-container');
         $(galleryContainer).slick('unslick');
         $(galleryContainer).css('opacity', 0);
+        currentlyOpenArtworkID = null;
 
-        $('.close-btn').removeClass('visible');
+        let newWidth = $(minimap).attr('data-default-width');
+        let newHeight = $(minimap).attr('data-default-height');
+
+        gsap.to(minimap, 
+            {
+                width: newWidth, 
+                height: newHeight, 
+                duration: 0.3
+        });
+
+        gsap.to('.top-right .close-btn', {x: "150%", duration: 0.5});
+        gsap.to('.artist-btn .inner', {x: 0, duration: 0.5});
+        gsap.to('.about-btn .inner', {y: 0, duration: 0.5});
+        gsap.set('.top-right .close-btn', {opacity: 0, delay: 0.5});
+        gsap.to('.map-background', {opacity: 1, duration: 0.3});
+
+
     }
 
 
     function teaseArtwork(id){
+        if(!currentlyOpenArtworkID == null){return}
+        gsap.to([".map-background",".artwork-thumbnail:not([artwork-id='"+id+"'])"], {opacity: 0.5, duration: 0.3});
         populateOverlayContent(id);
         let overlay = $('.single-artwork-overlay');
         $(overlay).addClass('tease');
@@ -142,6 +198,8 @@ $(function(){
 
     function unteaseArtwork(){
         let overlay = $('.single-artwork-overlay');
+        gsap.to([".map-background",".artwork-thumbnail"], {opacity: 1, duration: 0.3});
+        gsap.to('.map-background', {opacity: 1, duration: 0.3});
         gsap.to(overlay, 
             {transform: "translateY(10vh)", duration: 0.3, onComplete: removeClass}
         );
@@ -156,7 +214,7 @@ $(function(){
 
 
     function galleryToThumbnailTransition(id){
-        let mapImage = $('.artwork-thumbnail[artwork-id='+id+']');
+        let mapImage = $('.artwork-thumbnail[artwork-id='+currentlyOpenArtworkID+']');
         let goalLeft = $(mapImage).attr('data-left') + "%";
         let goalTop = $(mapImage).attr('data-top') + "%";
         let goalWidth = $(mapImage).attr('data-width') + "%";
@@ -211,15 +269,38 @@ $(function(){
             .set(galleryContainer,{opacity: 1, duration: 0.3})
             .to(mapImage, {opacity: 0, duration: 0.3});
 
-
-        console.log({newWidth});
-        console.log({mapImagePos});
-        console.log({galleryContainerPos});
-        console.log({galleryContainerHeight});
-
-
     }
 
+    
+
+    function openAboutArea(){
+        // close artistarea
+        if($(artistArea).hasClass('open')){
+            $('.artist-btn').trigger('click');
+        }
+
+        // set sizes and animation
+        let newHeight = $(window).height() - $('.brand').outerHeight();
+        let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()); 
+        newButtonX = $('.about-btn').attr('transform-x');
+        console.log(newButtonX);
+
+        var tl = gsap.timeline();
+        tl.to('.about-btn .inner', {x: newButtonX, duration: 0.5})
+            .set(aboutArea, {height:newHeight});
+
+        $(aboutArea).addClass('open');
+    }
+
+    function closeAboutArea(){
+        //gsap.to(aboutArea, {height:'0', duration: 0.5});+
+        gsap.set(aboutArea, {height:0});
+
+        var tl = gsap.timeline();
+        tl.set(aboutArea, {height:0})
+        .to('.about-btn .inner', {x: 0, duration: 0.5})
+        $(aboutArea).removeClass('open');
+    }
 
 
     // making the grids match
@@ -230,6 +311,10 @@ $(function(){
         // layout for minimap
         let ratio = $('.map-background').outerWidth() /  $('.map-background').outerHeight();
         let newWidth = $('.artist-btn').outerWidth() + $('.about-btn').outerWidth();
+        $(minimap).attr({
+            "data-default-width": newWidth,
+            "data-default-height": (newWidth/ratio)
+        });
         $(minimap).width(newWidth);
         $(minimap).height(newWidth/ratio);
 
@@ -237,6 +322,10 @@ $(function(){
         // layout for overlay
         $(singleArtworkOverlay).find('.topline-spacer').height($(brand).outerHeight());
         $(singleArtworkOverlay).find('.sidebar').width($(brand).outerWidth());
+
+        // special position for about button
+        let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()); 
+        $('.about-btn').attr('transform-x', newButtonX);
 
     }
     setLayoutAlignment();

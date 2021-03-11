@@ -49,13 +49,33 @@ div{
         border-bottom: $gridline;
     }
     .about-btn{
-        
         grid-column: 3/4;
         border-bottom: $gridline;
         padding: $cell-padding;
-        text-align: right;
-        
-        
+        text-align: right; 
+    }
+    .about-area{
+        @include text-m;
+        position:absolute;
+        height: 0px;
+        border-left: $gridline;
+        border-right: $gridline;
+        padding-left: $cell-padding;
+        padding-right: $cell-padding;
+        border-width: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        transition: height 0.5s ease-in, padding 0.5s ease-in, border-width 0.5s ease-in;
+        &.open{
+            padding-top: $cell-padding;
+            padding-bottom: $cell-padding;
+            overflow: scroll;
+            pointer-events: all;
+            border-width: unset;
+        }
     }
     .top-right{
         grid-column: 4/5;
@@ -64,12 +84,9 @@ div{
         border-left: $gridline;
         padding: $cell-padding;
         .close-btn{
+            opacity: 0;
             transform: translateX(150%);
-            transition: transform 0.7s ease-in;
             display: inline-block;
-            &.visible{
-                transform: translateX(0);
-            }
         }
     }
     
@@ -78,10 +95,26 @@ div{
         grid-row: 2/3;
         border-left: $gridline;
         padding: $cell-padding;
+        position:relative;
+
+        .close-btn{
+            position: absolute;
+            display: none;
+            right: 0;
+            top: 0;
+            padding-right: $cell-padding;
+            padding-top: $cell-padding;
+
+        }
         
         &.active{
             border-bottom: $gridline;
+            .close-btn{
+                display: inline-block;
+            }
         }
+
+
     }
     .artist-area{
         grid-column: 4/5;
@@ -92,13 +125,14 @@ div{
         overflow-y: scroll;
         @include text-m;
         transition: transform 0.3s ease-in;
-        transform: translateX(100%);
+        //transform: translateX(100%);
         width: 0;
+        height: 0;
         overflow: hidden;
         
         &.open{
             border-bottom: $gridline;
-            transform: translateX(0%);
+            //transform: translateX(0%);
             
         }
         
@@ -208,7 +242,7 @@ div{
     .map-draggable{
         min-width: 100%;
         min-height: 100%;
-        background-color: red;
+        background-color: black;
         position: absolute;
         top: 0;
         left: 0;  
@@ -384,7 +418,7 @@ div{
         text-align: right;
         .artist-name{
             display: inline-block;
-            padding: $cell-padding;
+            padding: $cell-padding/2;
             border-top: $gridline;
         }
         
@@ -398,7 +432,7 @@ div{
         
         div{
             border: $gridline;
-            padding: $cell-padding/3;
+            padding: $cell-padding/2;
         }
         
         .material{

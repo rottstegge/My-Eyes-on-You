@@ -207,6 +207,18 @@ html {
   font-family: 'Diatype', 'Helvetica', 'sans-serif';
   font-size: 0.4vw; }
 
+h2 {
+  margin-bottom: 1rem;
+  padding-top: 2rem; }
+
+h3 {
+  margin-bottom: 0;
+  padding-top: 2rem; }
+
+p {
+  margin-top: 0;
+  padding-top: 0; }
+
 body {
   width: 100vw;
   height: 100vh;
@@ -241,49 +253,77 @@ div {
   color: white; }
   .interface .brand {
     grid-column: 1/2;
-    border-right: 1.5px solid white;
-    border-bottom: 1.5px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
     padding: 2.5rem; }
   .interface .about-top-area {
-    border-bottom: 1.5px solid white; }
+    border-bottom: 2px solid white; }
   .interface .about-btn {
     grid-column: 3/4;
-    border-bottom: 1.5px solid white;
+    border-bottom: 2px solid white;
     padding: 2.5rem;
     text-align: right; }
+  .interface .about-area {
+    font-size: 3.5rem;
+    position: absolute;
+    height: 0px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    transition: height 0.5s ease-in, padding 0.5s ease-in, border-width 0.5s ease-in; }
+    .interface .about-area.open {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      overflow: scroll;
+      pointer-events: all;
+      border-width: unset; }
   .interface .top-right {
     grid-column: 4/5;
     grid-row: 1/1;
-    border-bottom: 1.5px solid white;
-    border-left: 1.5px solid white;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
     padding: 2.5rem; }
     .interface .top-right .close-btn {
+      opacity: 0;
       transform: translateX(150%);
-      transition: transform 0.7s ease-in;
       display: inline-block; }
-      .interface .top-right .close-btn.visible {
-        transform: translateX(0); }
   .interface .artist-btn {
     grid-column: 4/5;
     grid-row: 2/3;
-    border-left: 1.5px solid white;
-    padding: 2.5rem; }
+    border-left: 2px solid white;
+    padding: 2.5rem;
+    position: relative; }
+    .interface .artist-btn .close-btn {
+      position: absolute;
+      display: none;
+      right: 0;
+      top: 0;
+      padding-right: 2.5rem;
+      padding-top: 2.5rem; }
     .interface .artist-btn.active {
-      border-bottom: 1.5px solid white; }
+      border-bottom: 2px solid white; }
+      .interface .artist-btn.active .close-btn {
+        display: inline-block; }
   .interface .artist-area {
     grid-column: 4/5;
     grid-row: 3/4;
-    border-left: 1.5px solid white;
+    border-left: 2px solid white;
     overflow-x: hidden;
     overflow-y: scroll;
     font-size: 3.5rem;
     transition: transform 0.3s ease-in;
-    transform: translateX(100%);
     width: 0;
+    height: 0;
     overflow: hidden; }
     .interface .artist-area.open {
-      border-bottom: 1.5px solid white;
-      transform: translateX(0%); }
+      border-bottom: 2px solid white; }
     .interface .artist-area .artistlist-entry {
       padding-top: 0;
       padding-bottom: 0; }
@@ -306,11 +346,11 @@ div {
           padding-bottom: 2.5rem; }
         .interface .artist-area .artistlist-entry .artist-artworks-list.open {
           max-height: 400px;
-          border-top: 1.5px solid white;
-          border-bottom: 1.5px solid white; }
+          border-top: 2px solid white;
+          border-bottom: 2px solid white; }
   .interface .minimap {
-    border-left: 1.5px solid white;
-    border-top: 1.5px solid white;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
     background-size: cover;
     background-image: url("../content/img/map-mini.png");
     position: absolute;
@@ -320,7 +360,7 @@ div {
       position: absolute;
       width: 20%;
       height: 20%;
-      border: 1.5px solid white;
+      border: 2px solid white;
       pointer-events: none; }
 
 .borderanim::after {
@@ -349,7 +389,7 @@ div {
   .map-container .map-draggable {
     min-width: 100%;
     min-height: 100%;
-    background-color: red;
+    background-color: black;
     position: absolute;
     top: 0;
     left: 0;
@@ -466,13 +506,13 @@ div {
     text-align: right; }
     .single-artwork-overlay .bottom-left .artist-name {
       display: inline-block;
-      padding: 2.5rem;
-      border-top: 1.5px solid white; }
+      padding: 1.25rem;
+      border-top: 2px solid white; }
   .single-artwork-overlay .artwork-info {
     display: grid;
     grid-template-columns: 3fr 3fr 2fr; }
     .single-artwork-overlay .artwork-info div {
-      border: 1.5px solid white;
-      padding: 0.83333rem; }
+      border: 2px solid white;
+      padding: 1.25rem; }
     .single-artwork-overlay .artwork-info .material {
       grid-column: 1/3; }
