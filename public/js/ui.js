@@ -41,8 +41,12 @@ $(function(){
                 $(this).addClass('active');
             }
         })
-        .on("mouseenter", function(){
-            setMouseState('open', 'medium');
+        .on("mouseenter mouseover", function(){
+            if($(artistArea).hasClass('open')){
+                setMouseState('close', 'medium');
+            } else {
+                setMouseState('default', 'medium');
+            }
         })
         .on("mouseleave", function(){
             setMouseState('default', 'small');
@@ -51,8 +55,6 @@ $(function(){
     $('.artist-area')
         .on("click", ".artist-name.clickable", function(){
             let artworksList = $(this).siblings(".artist-artworks-list");
-
-
 
             if($(artworksList).hasClass('open')){
                 $(artworksList).removeClass('open');
@@ -94,8 +96,8 @@ $(function(){
         if($(overlay).hasClass('open')){ 
            return;
         }
+        setMouseState('default', 'large');
         let id = $(this).attr("artwork-id");
-        setMouseState('open', 'large')
         teaseArtwork(id);
     })
     $('.artwork-thumbnails').on("mouseleave",  ".artwork-thumbnail", function(){

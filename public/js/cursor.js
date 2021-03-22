@@ -19,11 +19,14 @@ $(function(){
     // Mutation Observer
     // different mouse states are handled via mutation observer on the "cursor state attribute"
     function attributeChanged(mutationList) {
-        let mutation = mutationList[0];
-        let newValue = mutation.target.attributes["cursor-state"].nodeValue;
-        let oldValue = mutation.oldValue;
-        if(oldValue == newValue){return}
-        animateCursor(oldValue, newValue);
+        let statemutation = mutationList[0];
+        let newState = statemutation.target.attributes["cursor-state"].nodeValue;
+        let oldState = statemutation.oldValue;
+        let sizemutation = mutationList[0];
+        let newSize = sizemutation.target.attributes["cursor-size"].nodeValue;
+        let oldSize = statemutation.oldValue;
+        if(oldState == newState && oldSize == newSize){return}
+        animateCursor(oldState, newState, oldSize, newSize);
     }
     var targetNode = $(cursorContainer)[0];
     // cursor states can be default, open, close, arrow-right, arrow-left
@@ -31,7 +34,7 @@ $(function(){
     observer.observe(targetNode, {
         attributes: true,
         attributeOldValue: true,
-        attributeFilter: ["cursor-state"]
+        attributeFilter: ["cursor-state", "cursor-size"]
     });
     
 
@@ -41,12 +44,16 @@ $(function(){
     
     // Welll
 
-    function animateCursor(oldState, newState){
-        let newSize = $(cursorContainer).attr('cursor-size');
+    function animateCursor(oldState, newState, oldSize, newSize){
+        //let newSize = $(cursorContainer).attr('cursor-size');
         let tl = gsap.timeline();
 
+        if(oldState !== newState){
+            console.log("new state: " + newState + "  old state: " + oldState);
+            tl.to(defaultPath, {morphSVG: {shape: `#${newState}`}, duration: 0.3});
+        }
 
-        tl.to(defaultPath, {morphSVG: {shape: `#${newState}`}, duration: 0.3})
+        console.log("new size: " + newSize);
 
         switch(newSize){
             case "small":

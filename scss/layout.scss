@@ -5,6 +5,7 @@ body{
     margin: 0;
     overflow: hidden;
     @include text-l;
+    cursor: none;
 }
 div{
     box-sizing:border-box;
@@ -13,7 +14,6 @@ div{
 }
 .clickable {
     pointer-events: all;
-    cursor: pointer;
 }
 .template{
     display: none;
@@ -325,7 +325,6 @@ div{
                 // left: 40%;
                 // width: 20%;
                 height: auto;
-                cursor: pointer;
                 
                 .thumbnail-image{
                     width: 100%;
