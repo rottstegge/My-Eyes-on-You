@@ -44,6 +44,7 @@ $(function(){
     
     // Welll
 
+
     function animateCursor(oldState, newState, oldSize, newSize){
         //let newSize = $(cursorContainer).attr('cursor-size');
         let tl = gsap.timeline();
