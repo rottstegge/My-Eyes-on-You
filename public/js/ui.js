@@ -260,7 +260,7 @@ $(function(){
         galleryContainerPos = $(galleryContainer).position(window);
         galleryContainerHeight = $(galleryContainer).height();
 
-        let newLeft = parseInt(backgroundLeft)*-1 + galleryContainerPos.left;
+        let newLeft = parseInt(backgroundLeft)*-1 + galleryContainerPos.left + borderWidth;
         let newTop = parseInt(backgroundTop)*-1 + galleryContainerPos.top;
         let newWidth = galleryContainerHeight / ($(mapImage).height() / $(mapImage).width());
 
@@ -288,14 +288,14 @@ $(function(){
 
         // set sizes and animation
         let newHeight = $(window).height() - $('.brand').outerHeight();
-        let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()); 
+        let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()) + parseInt($('.about-btn').css('padding')); 
         newButtonX = $('.about-btn').attr('transform-x');
         console.log(newButtonX);
 
         var tl = gsap.timeline();
-        tl.to('.about-btn .inner', {x: newButtonX, duration: 0.5})
+        tl.to('.about-btn .inner', {x: newButtonX, duration: 0.3})
             .set('.about-btn .close-btn', {opacity: 1}, "<")
-            .to('.about-btn .close-btn', {y: 0, duraction: 0.3}, "<")
+            .to('.about-btn .close-btn', {y: 0, duration: 0.3}, "<")
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
@@ -307,7 +307,7 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.set(aboutArea, {height:0})
-        .to('.about-btn .close-btn', {y: "-150%", duraction: 0.3}, "<")
+        .to('.about-btn .close-btn', {y: "-150%", duration: 0.3}, "<")
         .set('.about-btn .close-btn', {opacity: 1})
         .to('.about-btn .inner', {x: 0, duration: 0.5})
         $(aboutArea).removeClass('open');
