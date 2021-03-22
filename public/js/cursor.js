@@ -42,18 +42,22 @@ $(function(){
     // Welll
 
     function animateCursor(oldState, newState){
+        let newSize = $(cursorContainer).attr('cursor-size');
         let tl = gsap.timeline();
-        tl.to(defaultPath, {morphSVG: {shape: `#${newState}`, shapeIndex:1}, duration: 0.3})
 
-        switch(newState){
-            case "default":
-                tl.to(cursorContainer, {width: "8vw", height: "8vw", duration: 0.2})
+
+        tl.to(defaultPath, {morphSVG: {shape: `#${newState}`}, duration: 0.3})
+
+        switch(newSize){
+            case "small":
+                tl.to(cursorContainer, {width: "8vw", height: "8vw", duration: 0.2});
+                break;
+            case  "medium":
+                tl.to(cursorContainer, {width: "14vw", height: "14vw", duration: 0.2});
                 break;
             default:
-                tl.to(cursorContainer, {width: "20vw", height: "20vw", duration: 0.2})
+                tl.to(cursorContainer, {width: "20vw", height: "20vw", duration: 0.2});
         }
-
-            
     }
 
 

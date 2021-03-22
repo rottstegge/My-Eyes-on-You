@@ -19,40 +19,48 @@ $(function(){
 
     // Artist Section
 
-    $('.artist-btn').on("click", function(){
-        // if about Area is open, close it
-        if($(aboutArea).hasClass('open')){
-            console.log("its open, lets close");
-            closeAboutArea();
-        }
-                
-        if($(artistArea).hasClass('open')){
-            var tl = gsap.timeline();
-            tl.to(artistArea, {height: "0", duration: 0.25})
-                .to(artistArea, {width: 0, duration: 0.25});
-            $(artistArea).removeClass('open');
-            $(this).removeClass('active');
-        } else {
-            $(artistArea).addClass('open');
-            var tl = gsap.timeline();
-            tl.to(artistArea, {width: $(minimap).width()+borderWidth, duration: 0.25})
-                .to(artistArea, {height: "100vh", duration: 0.25});
-            $(this).addClass('active');
-        }
-    });
+    $('.artist-btn')
+        .on("click", function(){
+            // if about Area is open, close it
+            if($(aboutArea).hasClass('open')){
+                console.log("its open, lets close");
+                closeAboutArea();
+            }
+                    
+            if($(artistArea).hasClass('open')){
+                var tl = gsap.timeline();
+                tl.to(artistArea, {height: "0", duration: 0.25})
+                    .to(artistArea, {width: 0, duration: 0.25});
+                $(artistArea).removeClass('open');
+                $(this).removeClass('active');
+            } else {
+                $(artistArea).addClass('open');
+                var tl = gsap.timeline();
+                tl.to(artistArea, {width: $(minimap).width()+borderWidth, duration: 0.25})
+                    .to(artistArea, {height: "100vh", duration: 0.25});
+                $(this).addClass('active');
+            }
+        })
+        .on("mouseenter", function(){
+            setMouseState('open', 'medium');
+        })
+        .on("mouseleave", function(){
+            setMouseState('default', 'small');
+        });
 
-    $('.artist-area').on("click", ".artist-name.clickable", function(){
-        let artworksList = $(this).siblings(".artist-artworks-list");
+    $('.artist-area')
+        .on("click", ".artist-name.clickable", function(){
+            let artworksList = $(this).siblings(".artist-artworks-list");
 
 
 
-        if($(artworksList).hasClass('open')){
-            $(artworksList).removeClass('open');
-        } else {
-            $(artistArea).find('.artist-artworks-list.open').removeClass('open'); // if theres one open, close it
-            $(artworksList).addClass('open');
-        }
-    })
+            if($(artworksList).hasClass('open')){
+                $(artworksList).removeClass('open');
+            } else {
+                $(artistArea).find('.artist-artworks-list.open').removeClass('open'); // if theres one open, close it
+                $(artworksList).addClass('open');
+            }
+        })
 
     $('.about-btn').on('click', function(){
 
@@ -87,12 +95,14 @@ $(function(){
            return;
         }
         let id = $(this).attr("artwork-id");
+        setMouseState('open', 'large')
         teaseArtwork(id);
     })
     $('.artwork-thumbnails').on("mouseleave",  ".artwork-thumbnail", function(){
         // don't do anything if mouse moves after down
         if($(overlay).hasClass('open')){ return; }
         let id = $(this).attr("artwork-id");
+        setMouseState('default', 'small')
         unteaseArtwork();
     })
 
@@ -112,7 +122,6 @@ $(function(){
             $('.artist-btn').trigger('click');
         }
         if($(aboutArea).hasClass('open')){
-            console.log("its open, lets close");
             closeAboutArea();
         }
 
@@ -162,10 +171,10 @@ $(function(){
                 closeArtwork(currentlyOpenArtworkID);
             })
             .on("mouseenter", function(){
-                setMouseState("close");
+                setMouseState("close", 'large');
             })
             .on("mouseleave", function(){
-                setMouseState("default");
+                setMouseState("default", 'small');
             })
     };
 
@@ -199,17 +208,17 @@ $(function(){
 
     // setting hoverstates
     $('.gallery-container').on("mouseenter", ".slick-prev", function(){
-        setMouseState("arrowleft");
+        setMouseState("arrowleft", 'large');
     })
     $('.gallery-container').on("mouseleave", ".slick-prev", function(){
-        setMouseState("close");
+        setMouseState("close", 'small');
     });
 
     $('.gallery-container').on("mouseenter", ".slick-next", function(){
-        setMouseState("arrowright");
+        setMouseState("arrowright" , 'large');
     });
     $('.gallery-container').on("mouseleave", ".slick-next", function(){
-        setMouseState("close");
+        setMouseState("close" , 'small');
     });
 
 
@@ -365,8 +374,9 @@ $(function(){
     setLayoutAlignment();
 
 
-    function setMouseState(state){
-        $(cursorContainer).attr('cursor-state', state)
+    function setMouseState(state, size){
+        $(cursorContainer).attr('cursor-state', state);
+        $(cursorContainer).attr('cursor-size', size);
     }
 })
 

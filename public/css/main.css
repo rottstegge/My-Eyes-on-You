@@ -249,7 +249,7 @@ div {
   transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none; }
-  .cursor-container .cursor-svg #externallink, .cursor-container .cursor-svg #close, .cursor-container .cursor-svg #arrowleft, .cursor-container .cursor-svg #arrowright {
+  .cursor-container .cursor-svg #externallink, .cursor-container .cursor-svg #close, .cursor-container .cursor-svg #arrowleft, .cursor-container .cursor-svg #arrowright, .cursor-container .cursor-svg #open {
     visibility: hidden; }
 
 .interface {
