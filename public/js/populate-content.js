@@ -99,7 +99,7 @@ function populateOverlayContent(id){
         image = artwork.images[image];
         let htmlString = `
         <div class="gallery-item">
-            <img class="lazy" src="content/img/${id}/${image.image_url}-s.jpg" alt="${image.image_caption}" data-src="content/img/${id}/${image.image_url}-l.jpg">
+            <img class="lazy" src="content/img/${id}/${image.image_url}-s.jpg" alt="${image.image_caption}" data-lazy="content/img/${id}/${image.image_url}-l.jpg">
         </div>`;
 
         let newItem = $(htmlString);

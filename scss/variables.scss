@@ -1,5 +1,7 @@
-$grid-strokeweight: 2px;
+$grid-strokeweight: 4px;
 $gridline: $grid-strokeweight solid white;
+$gridline-hidden: $grid-strokeweight solid transparent;
+
 
 $cell-padding: 2.5rem;
 $text-color: white;

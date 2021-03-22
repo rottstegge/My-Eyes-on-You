@@ -8,6 +8,7 @@ $(function(){
     let overlay = $('.single-artwork-overlay');
     let currentlyOpenArtworkID = null;
     let aboutArea = $('.about-area');
+    let borderWidth = 4; // px to align stuff
 
 
 
@@ -32,7 +33,7 @@ $(function(){
         } else {
             $(artistArea).addClass('open');
             var tl = gsap.timeline();
-            tl.to(artistArea, {width: $(minimap).width(), duration: 0.25})
+            tl.to(artistArea, {width: $(minimap).width()+borderWidth, duration: 0.25})
                 .to(artistArea, {height: "100vh", duration: 0.25});
             $(this).addClass('active');
         }
@@ -100,8 +101,6 @@ $(function(){
 
 
 
-
-
     // Logic
     function openArtwork(id){
         // get content and open
@@ -129,7 +128,7 @@ $(function(){
             infinite: false,
             adaptiveHeight: true,
             variableWidth: true,
-            lazyLoad: 'ondemand'
+            lazyLoad: 'progressive'
           });
 
         // shrink minimap
