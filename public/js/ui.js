@@ -16,7 +16,6 @@ $(function(){
 
     // Click Handler
 
-
     // Artist Section
 
     $('.artist-btn')
@@ -204,8 +203,6 @@ $(function(){
         gsap.to('.about-btn .inner', {y: 0, duration: 0.5});
         gsap.set('.top-right .close-btn', {opacity: 0, delay: 0.5});
         gsap.to('.map-background', {opacity: 1, duration: 0.3});
-
-
     }
 
     // setting hoverstates
@@ -222,6 +219,14 @@ $(function(){
     $('.gallery-container').on("mouseleave", ".slick-next", function(){
         setMouseState("close" , 'small');
     });
+
+    $('.external-link')
+        .on("mouseenter", function(){
+            setMouseState("externallink" , 'medium');
+        })
+        .on("mouseleave", function(){
+            setMouseState("default" , 'small');
+        });
 
 
     function teaseArtwork(id){
@@ -320,6 +325,8 @@ $(function(){
             $('.artist-btn').trigger('click');
         }
 
+        gsap.to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 0.3, duration: 0.3});
+
         // set sizes and animation
         let newHeight = $(window).height() - $('.brand').outerHeight();
         let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()) + parseInt($('.about-btn').css('padding')); 
@@ -328,8 +335,8 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.to('.about-btn .inner', {x: newButtonX, duration: 0.3})
-            .set('.about-btn .close-btn', {opacity: 1}, "<")
-            .to('.about-btn .close-btn', {y: 0, duration: 0.3}, "<")
+            .set('.about-btn .imprint-btn', {opacity: 1}, "<")
+            .to('.about-btn .imprint-btn', {y: 0, duration: 0.3}, "<")
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
@@ -341,11 +348,18 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.set(aboutArea, {height:0})
-        .to('.about-btn .close-btn', {y: "-150%", duration: 0.3}, "<")
-        .set('.about-btn .close-btn', {opacity: 1})
+        .to('.about-btn .imprint-btn', {y: "-150%", duration: 0.3}, "<")
+        .set('.about-btn .imprint-btn', {opacity: 1})
         .to('.about-btn .inner', {x: 0, duration: 0.5})
+        .to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3}, "<=");
+
         $(aboutArea).removeClass('open');
     }
+
+    // scroll to imprint
+    $('.imprint-btn').on('click', function(){
+        gsap.to('.about-area', {scrollTo:{y:$(".imprint.section").offset().top}});
+    })
 
 
     // making the grids match

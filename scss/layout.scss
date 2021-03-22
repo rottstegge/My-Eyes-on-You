@@ -76,7 +76,7 @@ div{
         text-align: right; 
         position: relative;
 
-        .close-btn{
+        .imprint-btn{
             position: absolute;
             right: 0;
             top: 0;
@@ -91,8 +91,6 @@ div{
         height: 0px;
         border-left: $gridline;
         border-right: $gridline;
-        padding-left: $cell-padding;
-        padding-right: $cell-padding;
         border-color: transparent;
         margin-right: $grid-strokeweight * -0.5;
         padding-top: 0;
@@ -103,13 +101,17 @@ div{
         grid-column: 2/3;
         transition: height 0.5s ease-in, padding 0.5s ease-in, border-color 0.2s ease-in;
         &.open{
-            padding-top: $cell-padding;
-            padding-bottom: $cell-padding;
             border-color: white;
 
             overflow: scroll;
             pointer-events: all;
             border-width: unset;
+        }
+
+        .section{
+            border-bottom:  $gridline;
+            padding-left: $cell-padding;
+            padding-right: $cell-padding;
         }
     }
     .top-right{
