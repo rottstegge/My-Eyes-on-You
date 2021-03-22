@@ -243,14 +243,14 @@ div {
   width: 20vw;
   height: 20vw;
   position: fixed;
-  background-color: yellow;
-  opacity: 0.4;
   position: absolute;
   left: 0;
   top: 0;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 2;
   pointer-events: none; }
+  .cursor-container .cursor-svg #externallink, .cursor-container .cursor-svg #close, .cursor-container .cursor-svg #arrowleft, .cursor-container .cursor-svg #arrowright {
+    visibility: hidden; }
 
 .interface {
   position: fixed;
