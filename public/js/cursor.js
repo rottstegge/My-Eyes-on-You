@@ -28,11 +28,19 @@ $(function(){
       
       var targetNode = $(cursorContainer)[0];
       
+
+      // cursor states can be crosshair, open, close, arrow-right, arrow-left
       var observer = new MutationObserver(attributeChanged);
       observer.observe(targetNode, {
         attributes: true,
-        attributeOldValue: true
+        attributeOldValue: true,
+        attributeFilter: ["cursor-state"]
       });
+
+
+      function animateMouseFromTo(oldState, newState){
+
+      }
 
 
 })
