@@ -131,6 +131,14 @@ $(function(){
             lazyLoad: 'progressive'
           });
 
+        // setup image counter
+        $(galleryContainer).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+            //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+            var i = (currentSlide ? currentSlide : 0) + 1;
+            $('.current-img').text(i);
+            $('.img-amount').text(slick.slideCount);
+        });
+
         // shrink minimap
         let oldHeight = $(minimap).outerHeight();
         let oldWidth = $(minimap).outerWidth();
