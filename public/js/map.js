@@ -67,8 +67,22 @@ $(function(){
         }
     });
 
+    $('.artist-area').on('click', ".artwork", function(){
+        let id = $(this).attr('artwork-id');
+        // find artwork
+       let artworkThumbnail = $(draggableContainer).find(".artwork-thumbnail[artwork-id='"+id+"']");
+       let left = $(artworkThumbnail).attr('data-left');
+       let top = $(artworkThumbnail).attr('data-top');
+
+        console.log("clicked on " + id + " in the list");
+        console.log({left, top});
+
+        moveMapTo(parseInt(left), parseInt(top), "CENTER");
+
+    });
+
     // accepts percentage values on x and y axis
-    function moveMapTo(xPos, yPos){
+    function moveMapTo(xPos, yPos, mode){
         let containerWidth = parseInt($(draggableContainer).width());
         let containerHeight = parseInt($(draggableContainer).height());
         let draggableWidth = parseInt($(draggable).width());
@@ -78,10 +92,17 @@ $(function(){
 
         let newLeft = draggableWidth*(xPos/100);
         let newTop = draggableHeight*(yPos/100);
+
+
+        if(mode == 'CENTER'){
+            newLeft = newLeft - (containerWidth/2);
+            newTop = newTop - (containerWidth/2);
+        }
+
         newLeft = -1* constrain(newLeft, 0, draggableWidth - containerWidth);
         newTop = -1* constrain(newTop, 0, draggableHeight - containerHeight);
 
-        // calculate delta distance (pythagoras)
+        // calculate delta distance (pythagoras) to get consistent speeds
         let dist = Math.sqrt( Math.pow((currentTop-newTop), 2) + Math.pow((currentLeft-newLeft), 2) );
         let animduration = dist/(1000*miniMapNavSpeed);
 
@@ -98,7 +119,23 @@ $(function(){
 
 
     // Minimap Functionality
-    $('.minimap').on("mousedown", function(event){
+    // $('.minimap').on("mousedown", function(event){
+    //     let indicator = positionIndicator;
+    //     let indicatorWidth = parseInt($(indicator).width());
+    //     let indicatorHeight = parseInt($(indicator).height());
+
+    //     let mouseX = event.offsetX - (indicatorWidth/2);
+    //     let mouseY = event.offsetY - (indicatorHeight/2);
+    //     let minimapWidth = parseInt($(this).width());
+    //     let minimapHeight = parseInt($(this).height());
+
+    //     let xPos = map(mouseX, 0, minimapWidth, 0, 100);
+    //     let yPos = map(mouseY, 0, minimapHeight, 0, 100);
+    //     moveMapTo(xPos, yPos);
+    // });
+
+    $('.minimap').on("mouseover", function(event){
+        if(!event.which == 1){return};
         let indicator = positionIndicator;
         let indicatorWidth = parseInt($(indicator).width());
         let indicatorHeight = parseInt($(indicator).height());

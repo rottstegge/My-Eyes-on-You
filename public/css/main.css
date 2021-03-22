@@ -262,7 +262,15 @@ div {
     grid-column: 3/4;
     border-bottom: 2px solid white;
     padding: 2.5rem;
-    text-align: right; }
+    text-align: right;
+    position: relative; }
+    .interface .about-btn .close-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateY(-150%);
+      padding: 2.5rem;
+      opacity: 0; }
   .interface .about-area {
     font-size: 3.5rem;
     position: absolute;
@@ -274,6 +282,8 @@ div {
     border-width: 0;
     padding-top: 0;
     padding-bottom: 0;
+    margin-left: -2px;
+    margin-right: -2px;
     overflow: hidden;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -338,16 +348,15 @@ div {
         overflow-y: hidden;
         max-height: 0;
         transition: max-height 0.3s ease-in;
-        padding-left: 2.5rem;
-        padding-right: 2.5rem; }
-        .interface .artist-area .artistlist-entry .artist-artworks-list .artwork:first-of-type {
-          padding-top: 2.5rem; }
-        .interface .artist-area .artistlist-entry .artist-artworks-list .artwork:last-of-type {
-          padding-bottom: 2.5rem; }
+        padding-left: 2.5rem; }
+        .interface .artist-area .artistlist-entry .artist-artworks-list .artwork {
+          padding-right: 2.5rem; }
         .interface .artist-area .artistlist-entry .artist-artworks-list.open {
           max-height: 400px;
           border-top: 2px solid white;
           border-bottom: 2px solid white; }
+          .interface .artist-area .artistlist-entry .artist-artworks-list.open .artwork:not(:last-of-type) {
+            border-bottom: 2px solid white; }
   .interface .minimap {
     border-left: 2px solid white;
     border-top: 2px solid white;
@@ -426,7 +435,18 @@ div {
             width: 100%;
             height: auto; }
         .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .blend-image {
-          mix-blend-mode: lighten; }
+          mix-blend-mode: lighten;
+          animation: wiggle 20s infinite; }
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: rotate(3deg); }
+  75% {
+    transform: rotate(-3deg); }
+  100% {
+    transform: rotate(0deg); } }
         .map-container .map-draggable .artwork-thumbnails .artwork-thumbnail .regular-image {
           position: absolute;
           top: 0;
@@ -482,7 +502,7 @@ div {
       left: 0;
       top: 0;
       bottom: 0;
-      width: 50%;
+      width: 25%;
       z-index: 2;
       opacity: 0; }
     .single-artwork-overlay .gallery-container .slick-next {
@@ -490,7 +510,7 @@ div {
       right: 0;
       top: 0;
       bottom: 0;
-      width: 50%;
+      width: 75%;
       z-index: 2;
       opacity: 0; }
     .single-artwork-overlay .gallery-container .gallery-item {

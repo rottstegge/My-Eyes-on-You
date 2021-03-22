@@ -1,12 +1,12 @@
 let artists, artworks;
 
 $(function(){
-    $.getJSON( "../content/artists.json", function( data ) {
+    $.getJSON( "./content/artists.json", function( data ) {
         artists = data.artists;
         populateArtistsList();
     });
     
-    $.getJSON( "../content/artworks.json", function( data ) {
+    $.getJSON( "./content/artworks.json", function( data ) {
         artworks = data.artworks;
         populateMapContent();
     });

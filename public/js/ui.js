@@ -94,7 +94,7 @@ $(function(){
     })
 
 
-    $('.close-btn').on("click", function(){
+    $('.top-right  .close-btn').on("click", function(){
         closeArtwork(currentlyOpenArtworkID);
     })
 
@@ -185,7 +185,7 @@ $(function(){
 
     function teaseArtwork(id){
         if(!currentlyOpenArtworkID == null){return}
-        gsap.to([".map-background",".artwork-thumbnail:not([artwork-id='"+id+"'])"], {opacity: 0.5, duration: 0.3});
+        gsap.to([".map-background",".artwork-thumbnail:not([artwork-id='"+id+"']) .blend-image"], {opacity: 0.3, duration: 0.3});
         populateOverlayContent(id);
         let overlay = $('.single-artwork-overlay');
         $(overlay).addClass('tease');
@@ -198,7 +198,7 @@ $(function(){
 
     function unteaseArtwork(){
         let overlay = $('.single-artwork-overlay');
-        gsap.to([".map-background",".artwork-thumbnail"], {opacity: 1, duration: 0.3});
+        gsap.to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3});
         gsap.to('.map-background', {opacity: 1, duration: 0.3});
         gsap.to(overlay, 
             {transform: "translateY(10vh)", duration: 0.3, onComplete: removeClass}
@@ -222,7 +222,7 @@ $(function(){
 
 
 
-        let tl = gsap.timeline({defaults: {duration: 1, ease: "easeOut"} });
+        let tl = gsap.timeline({defaults: {duration: 0.5, ease: "easeOut"} });
 
         tl.add("start")
         .set(mapImage, {
@@ -257,7 +257,7 @@ $(function(){
         let newTop = parseInt(backgroundTop)*-1 + galleryContainerPos.top;
         let newWidth = galleryContainerHeight / ($(mapImage).height() / $(mapImage).width());
 
-        let tl = gsap.timeline({defaults: {duration: 1, ease: "easeIn"} });
+        let tl = gsap.timeline({defaults: {duration: 0.5, ease: "easeIn"} });
         tl.to(mapImage, {
             left: newLeft, 
             top: newTop, 
@@ -287,6 +287,8 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.to('.about-btn .inner', {x: newButtonX, duration: 0.5})
+            .set('.about-btn .close-btn', {opacity: 1}, "<")
+            .to('.about-btn .close-btn', {y: 0, duraction: 0.3}, "<")
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
@@ -298,6 +300,8 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.set(aboutArea, {height:0})
+        .to('.about-btn .close-btn', {y: "-150%", duraction: 0.3}, "<")
+        .set('.about-btn .close-btn', {opacity: 1})
         .to('.about-btn .inner', {x: 0, duration: 0.5})
         $(aboutArea).removeClass('open');
     }

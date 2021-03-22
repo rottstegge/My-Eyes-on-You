@@ -1,3 +1,5 @@
-$gridline: 2px solid white;
+$grid-strokeweight: 2px;
+$gridline: $grid-strokeweight solid white;
+
 $cell-padding: 2.5rem;
 $text-color: white;

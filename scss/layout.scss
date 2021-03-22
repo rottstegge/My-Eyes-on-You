@@ -53,6 +53,16 @@ div{
         border-bottom: $gridline;
         padding: $cell-padding;
         text-align: right; 
+        position: relative;
+
+        .close-btn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translateY(-150%);
+            padding: $cell-padding;
+            opacity: 0;
+        }
     }
     .about-area{
         @include text-m;
@@ -65,6 +75,9 @@ div{
         border-width: 0;
         padding-top: 0;
         padding-bottom: 0;
+        margin-left: $grid-strokeweight * -1;
+        margin-right: $grid-strokeweight * -1;
+
         overflow: hidden;
         grid-row: 2/3;
         grid-column: 2/3;
@@ -161,15 +174,15 @@ div{
                 transition: max-height 0.3s ease-in;
                 
                 padding-left: $cell-padding;
-                padding-right: $cell-padding;
                 
                 .artwork{
-                    
+                    padding-right: $cell-padding;
+
                     &:first-of-type{
-                        padding-top: $cell-padding;
+                        //padding-top: $cell-padding;
                     }
                     &:last-of-type{
-                        padding-bottom: $cell-padding;
+                        //padding-bottom: $cell-padding;
                     }
                 }
                 
@@ -178,6 +191,11 @@ div{
                     border-top: $gridline;
                     border-bottom: $gridline;
                     
+                    .artwork:not(:last-of-type){
+                        border-bottom:  $gridline;
+                    }
+
+
                 }
             }
             
@@ -278,6 +296,8 @@ div{
             user-drag: none;
             
             .artwork-thumbnail{
+
+   
                 position: absolute;
                 // top: 30%;
                 // left: 40%;
@@ -295,6 +315,13 @@ div{
                 }
                 .blend-image{
                     mix-blend-mode: lighten;
+                    @keyframes wiggle {
+                        0% { transform: rotate(0deg); }
+                        25% { transform: rotate(3deg); }
+                        75% { transform: rotate(-3deg); }
+                      100% { transform: rotate(0deg); }
+                    }
+                    animation: wiggle 20s infinite;
                 }
                 .regular-image{
                     position: absolute;
@@ -382,7 +409,7 @@ div{
             left: 0;
             top: 0;
             bottom: 0;
-            width: 50%;
+            width: 25%;
             z-index: 2;
             opacity: 0;
         }
@@ -391,7 +418,7 @@ div{
             right: 0;
             top: 0;
             bottom: 0;
-            width: 50%;
+            width: 75%;
             z-index: 2;
             opacity: 0;
         }
