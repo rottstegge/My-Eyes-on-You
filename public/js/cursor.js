@@ -22,6 +22,7 @@ $(function(){
         let mutation = mutationList[0];
         let newValue = mutation.target.attributes["cursor-state"].nodeValue;
         let oldValue = mutation.oldValue;
+        if(oldValue == newValue){return}
         animateCursor(oldValue, newValue);
     }
     var targetNode = $(cursorContainer)[0];
@@ -39,27 +40,22 @@ $(function(){
     
     
     // Welll
-    function setMouseState(state){
-        $(cursorContainer).attr("cursor-state", state);
+
+    function animateCursor(oldState, newState){
+        let tl = gsap.timeline();
+        tl.to(defaultPath, {morphSVG: {shape: `#${newState}`, shapeIndex:1}, duration: 0.3})
+
+        switch(newState){
+            case "default":
+                tl.to(cursorContainer, {width: "8vw", height: "8vw", duration: 0.2})
+                break;
+            default:
+                tl.to(cursorContainer, {width: "20vw", height: "20vw", duration: 0.2})
+        }
+
+            
     }
-    
-    function animateCursor(oldPath, newPath){
-        gsap.to(defaultPath, {morphSVG: {shape: `#${newPath}`, shapeIndex:1}, duration: 0.3})
-    }
-    
-    $('.gallery-container').on("mouseenter", ".slick-prev", function(){
-        setMouseState("arrowleft");
-    })
-    $('.gallery-container').on("mouseleave", ".slick-prev", function(){
-        setMouseState("close");
-    });
-    
-    $('.gallery-container').on("mouseenter", ".slick-next", function(){
-        setMouseState("arrowright");
-    });
-    $('.gallery-container').on("mouseleave", ".slick-next", function(){
-        setMouseState("close");
-    });
+
 
     
 })

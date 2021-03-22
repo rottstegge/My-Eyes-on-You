@@ -8,7 +8,9 @@ $(function(){
     let overlay = $('.single-artwork-overlay');
     let currentlyOpenArtworkID = null;
     let aboutArea = $('.about-area');
+    let cursorContainer = $('.cursor-container');
     let borderWidth = 4; // px to align stuff
+
 
 
 
@@ -95,10 +97,6 @@ $(function(){
     })
 
 
-    $('.top-right  .close-btn').on("click", function(){
-        closeArtwork(currentlyOpenArtworkID);
-    })
-
 
 
     // Logic
@@ -151,14 +149,24 @@ $(function(){
                 duration: 0.3
         });
 
-        // show close button, remove other buttons
-        gsap.set('.top-right .close-btn', {opacity: 1});
-        gsap.to('.top-right .close-btn', {x: 0, duration: 0.5});
+        // remove other buttons
         gsap.to('.artist-btn .inner', {x: "150%", duration: 0.5});
         gsap.to('.about-btn .inner', {y: "-150%", duration: 0.5});
 
 
         currentlyOpenArtworkID = id;
+
+        // Handler To Close Artwork Again
+        $('.topline-spacer, .sidebar, .bottom-left, .metainfo-container')
+            .one("click", function(){
+                closeArtwork(currentlyOpenArtworkID);
+            })
+            .on("mouseenter", function(){
+                setMouseState("close");
+            })
+            .on("mouseleave", function(){
+                setMouseState("default");
+            })
     };
 
 
@@ -188,6 +196,21 @@ $(function(){
 
 
     }
+
+    // setting hoverstates
+    $('.gallery-container').on("mouseenter", ".slick-prev", function(){
+        setMouseState("arrowleft");
+    })
+    $('.gallery-container').on("mouseleave", ".slick-prev", function(){
+        setMouseState("close");
+    });
+
+    $('.gallery-container').on("mouseenter", ".slick-next", function(){
+        setMouseState("arrowright");
+    });
+    $('.gallery-container').on("mouseleave", ".slick-next", function(){
+        setMouseState("close");
+    });
 
 
     function teaseArtwork(id){
@@ -341,6 +364,10 @@ $(function(){
     }
     setLayoutAlignment();
 
+
+    function setMouseState(state){
+        $(cursorContainer).attr('cursor-state', state)
+    }
 })
 
 
