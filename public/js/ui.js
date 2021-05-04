@@ -6,6 +6,7 @@ $(function(){
     let artistArea = $('.artist-area');
     let minimap = $('.minimap');
     let overlay = $('.single-artwork-overlay');
+    let aboutIsOpen = false;
     let currentlyOpenArtworkID = null;
     let aboutArea = $('.about-area');
     let cursorContainer = $('.cursor-container');
@@ -92,21 +93,39 @@ $(function(){
 
     $('.artwork-thumbnails').on("mouseenter",  ".artwork-thumbnail", function(){
         // don't do anything if mouse moves after down
-        if($(overlay).hasClass('open')){ 
+        if($(overlay).hasClass('open') ||  $(aboutArea).hasClass('open') ){ 
            return;
         }
+
+
         setMouseState('default', 'large');
         let id = $(this).attr("artwork-id");
         teaseArtwork(id);
     })
     $('.artwork-thumbnails').on("mouseleave",  ".artwork-thumbnail", function(){
         // don't do anything if mouse moves after down
-        if($(overlay).hasClass('open')){ return; }
+        if($(overlay).hasClass('open') ||  $(aboutArea).hasClass('open') ){ 
+            return;
+         }        
         let id = $(this).attr("artwork-id");
         setMouseState('default', 'small')
         unteaseArtwork();
     })
 
+
+    // hover states for ArtistList
+    $('.artist-area').on("mouseenter", ".artwork", function(){
+        console.log("blaaahah");
+        if($(overlay).hasClass('open') ||  $(aboutArea).hasClass('open') ){ 
+            return;
+         }        let id = $(this).attr("artwork-id");
+        teaseArtwork(id);
+    });
+    $('.artist-area').on("mouseleave", ".artwork", function(){
+        if($(overlay).hasClass('open')){ return; }
+        let id = $(this).attr("artwork-id");
+        unteaseArtwork();
+    });
 
 
 
@@ -220,6 +239,22 @@ $(function(){
         setMouseState("close" , 'small');
     });
 
+    // When About is open
+    $('.about-area').on("mouseenter", function(){
+        setMouseState("default" , 'small');
+    });
+    $('.about-area').on("mouseleave", function(){
+        setMouseState("close" , 'small');
+    });
+    $('.imprint-btn').on("mouseenter", function(){
+        setMouseState("default" , 'small');
+    });
+    $('.imprint-btn').on("mouseleave", function(){
+        setMouseState("close" , 'small');
+    });
+
+
+
     $('.external-link')
         .on("mouseenter", function(){
             setMouseState("externallink" , 'medium');
@@ -227,6 +262,9 @@ $(function(){
         .on("mouseleave", function(){
             setMouseState("default" , 'small');
         });
+
+
+    
 
 
     function teaseArtwork(id){
@@ -357,8 +395,11 @@ $(function(){
     }
 
     // scroll to imprint
-    $('.imprint-btn').on('click', function(){
-        gsap.to('.about-area', {scrollTo:{y:$(".imprint.section").offset().top}});
+    $('.imprint-btn').on('click', function(e){
+        console.log("clicked imprint buttn");
+        e.stopPropagation();
+        let offset = $(".imprint.section").offset().top;
+        gsap.to('.about-area', {scrollTop: offset, duration: 0.5});
     })
 
 
@@ -394,6 +435,28 @@ $(function(){
         $(cursorContainer).attr('cursor-state', state);
         $(cursorContainer).attr('cursor-size', size);
     }
+
+
+
+
+    function playIntroAnimation(){
+
+
+        var interfaceIntro = gsap.timeline();
+        interfaceIntro
+            .set(".interface", {x: "100%", y: "50%", right:"-30vw", color:"transparent"})
+            .set(".brand", {color:"white"})
+            .set(".about-top-area", {css: {borderLeftColor:"transparent"}})
+            .set(".minimap", {y: "102%"})
+            .to(".interface", {x: "0%", duration: 4})
+            .to(".interface", {y: "0%", duration: 2})
+            .to(".interface", {right:"0vw", duration: 2})
+            .to(".minimap", {y: "0", duration: 2})
+            .to(".interface", {color:"white", duration: 1})
+            .to(".about-top-area", {css: {borderLeftColor:"white"}}, "<")
+            .to(".map-container", {opacity: 1, duration: 2.25}, "<2");
+    }
+    playIntroAnimation();
 })
 
 

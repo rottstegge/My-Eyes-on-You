@@ -5,7 +5,7 @@
         "id": "1",
         "pos_x": 10,
         "pos_y": 10,
-        "width": 6,
+        "width": 3,
         "artist_name": "Luca Borsato",
         "title": "19 Days in Paris or how we became lovers ",
         "material": "Material",
@@ -49,7 +49,7 @@
         "id": "3",
         "pos_x": 30,
         "pos_y": 10,
-        "width": 6,
+        "width": 3,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons II",
         "material": "Material",
@@ -97,7 +97,7 @@
         "id": "5",
         "pos_x": 50,
         "pos_y": 10,
-        "width": 6,
+        "width": 3,
         "artist_name": "Jung Min Lee",
         "title": "The Reaper, the Lock",
         "material": "Material",
@@ -147,6 +147,31 @@
         "pos_x": 60,
         "pos_y": 10,
         "width": 6,
+        "artist_name": "Hélène Padoux",
+        "title": "Trusting Sugar, care or perfomance",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "date": "Year",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            },
+            {
+                "image_url": "c", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "8",
+        "pos_x": 60,
+        "pos_y": 40,
+        "width": 3,
         "artist_name": "Hélène Padoux",
         "title": "Trusting Sugar, care or perfomance",
         "material": "Material",

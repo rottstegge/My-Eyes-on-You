@@ -6,6 +6,7 @@ body{
     overflow: hidden;
     @include text-l;
     cursor: none;
+    background-color: black;
 }
 div{
     box-sizing:border-box;
@@ -113,6 +114,11 @@ div{
             padding-left: $cell-padding;
             padding-right: $cell-padding;
         }
+
+        .logo{
+            width: 20%;
+            height: auto;
+        }
     }
     .top-right{
         grid-column: 4/5;
@@ -201,12 +207,15 @@ div{
                 
                 .artwork{
                     padding-right: $cell-padding;
+                    line-height: 1.2;
+                    padding-top: $cell-padding/2;
+                    padding-bottom: $cell-padding/2;
 
                     &:first-of-type{
-                        //padding-top: $cell-padding;
+                        padding-top: $cell-padding*0.75;
                     }
                     &:last-of-type{
-                        //padding-bottom: $cell-padding;
+                        padding-bottom: $cell-padding*0.75;
                     }
                 }
                 
@@ -278,7 +287,8 @@ div{
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-color: black;
+    opacity: 0;
     
     
     
