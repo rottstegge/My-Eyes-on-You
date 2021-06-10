@@ -7,10 +7,10 @@
         "pos_y": 10,
         "width": 3,
         "artist_name": "Luca Borsato",
-        "title": "19 Days in Paris or how we became lovers ",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "title": "19 Days in Paris or how we became lovers",
+        "material": "high-gloss paper",
+        "dimensions": "A2",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -22,7 +22,6 @@
             }
         ]
       },
-
       {
         "id": "2",
         "pos_x": 20,
@@ -30,8 +29,8 @@
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons III",
-        "material": "Material and so on, Material and so on, Material and so on, Material and so on, Material and so on, Material and so on  Material and so on Material and so on",
-        "dimensions": "XZ32Z Dimensions",
+        "material": "salt dough",
+        "dimensions": "28×30cm & 36×28cm & 31×23cm",
         "date": "2020",
         "images": [
             {
@@ -52,9 +51,9 @@
         "width": 3,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons II",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "material": "salt dough",
+        "dimensions": "33x20cm & 30x25cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -70,17 +69,16 @@
             }
         ]
       },
-
       {
         "id": "4",
-        "pos_x": 40,
+        "pos_x": 30,
         "pos_y": 10,
-        "width": 6,
-        "artist_name": "Matthew Muir",
-        "title": "Red Door",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "width": 3,
+        "artist_name": "Lennart Wolter",
+        "title": "Spilled Demons II",
+        "material": "salt dough",
+        "dimensions": "26x24cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -92,17 +90,62 @@
             }
         ]
       },
-
       {
         "id": "5",
+        "pos_x": 40,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Matthew Muir",
+        "title": "Red Door 1",
+        "material": "salvaged car parts and wrapping foil",
+        "dimensions": "92x111x25cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "6",
         "pos_x": 50,
         "pos_y": 10,
         "width": 3,
         "artist_name": "Jung Min Lee",
-        "title": "The Reaper, the Lock",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "title": "The Reaper",
+        "material": "oil on canvas and PLA 3D printed frame",
+        "dimensions": "38x35x40cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            },
+            {
+                "image_url": "c", 
+                "image_caption": 3
+            }
+        ]
+      },
+      {
+        "id": "7",
+        "pos_x": 50,
+        "pos_y": 10,
+        "width": 3,
+        "artist_name": "Jung Min Lee",
+        "title": "The Lock",
+        "material": "oil on canvas and PLA 3D printed frame",
+        "dimensions": "34x27.5x40cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -120,15 +163,15 @@
       },
 
       {
-        "id": "6",
+        "id": "8",
         "pos_x": 60,
         "pos_y": 10,
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Dream Catcher",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "material": "salt dough",
+        "dimensions": "38x38cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -143,15 +186,15 @@
 
 
       {
-        "id": "7",
+        "id": "9",
         "pos_x": 60,
         "pos_y": 10,
         "width": 6,
         "artist_name": "Hélène Padoux",
-        "title": "Trusting Sugar, care or perfomance",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "title": "Trusting Sugar",
+        "material": "indian ink and acrylic on denim",
+        "dimensions": "130x120cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -168,15 +211,15 @@
         ]
       },
       {
-        "id": "8",
+        "id": "10",
         "pos_x": 60,
         "pos_y": 40,
         "width": 3,
         "artist_name": "Hélène Padoux",
-        "title": "Trusting Sugar, care or perfomance",
-        "material": "Material",
-        "dimensions": "Dimensions",
-        "date": "Year",
+        "title": "Care or performance",
+        "material": "indian ink and acrylic on denim",
+        "dimensions": "130x125cm",
+        "date": "2020",
         "images": [
             {
                 "image_url": "a", 
@@ -185,21 +228,178 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "11",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Lennart Wolter",
+        "title": "Come with me",
+        "material": "salt dough",
+        "dimensions": "29x40cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
             },
             {
-                "image_url": "c", 
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "12",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Adria Lopez Pena",
+        "title": "Glove for Tadzio",
+        "material": "salix caprea leaves, watercolour, potato peel, found leather glove, resin, kale",
+        "dimensions": "28x23cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "13",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Adrian Lopez Peña",
+        "title": "Curtained Inlook (promotional incipit)",
+        "material": "birch leaves, thread, watercolour, oil paint",
+        "dimensions": "25x11cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "14",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Marek Kochanowicz",
+        "title": "O.T.",
+        "material": "steel poles, used reflective stripes, thread, variable dimensions",
+        "dimensions": "each piece 190x2cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "15",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Lennart Wolter",
+        "title": "Come with me II",
+        "material": "salt dough",
+        "dimensions": "35x28cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "16",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Simon Koza Mine",
+        "title": "Splatters",
+        "material": "found beer bottles, wax, makeup, gelatin",
+        "dimensions": "35x28cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "17",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Adrian Lopez Peña",
+        "title": "Drift (flanks)",
+        "material": "bleached maple leaf, tape",
+        "dimensions": "12x24cm",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
+                "image_caption": 2
+            }
+        ]
+      },
+      {
+        "id": "18",
+        "pos_x": 60,
+        "pos_y": 10,
+        "width": 6,
+        "artist_name": "Luca Borsato",
+        "title": "Never take away my freedom 2 & Pop stars 2077",
+        "material": "high-gloss paper",
+        "dimensions": "each A2",
+        "date": "2020",
+        "images": [
+            {
+                "image_url": "a", 
+                "image_caption": 1
+            },
+            {
+                "image_url": "b", 
                 "image_caption": 2
             }
         ]
       }
-
       
-
-
-
-
-
-
 
 
       
