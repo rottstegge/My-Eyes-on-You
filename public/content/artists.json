@@ -5,15 +5,15 @@
         "artworks": [
             {
                 "artwork_title": "Glove for Tadzio", 
-                "artwork_id": "9"
+                "artwork_id": "12"
             },
             {
                 "artwork_title": "Curtained Inlook (promotional incipit)", 
-                "artwork_id": "10"
+                "artwork_id": "13"
             },
             {
                 "artwork_title": "Drift (flanks)", 
-                "artwork_id": "14"
+                "artwork_id": "17"
             }
         ]
       },
@@ -21,8 +21,12 @@
         "name": "Hélène Padoux",
         "artworks": [
             {
-                "artwork_title": "Trusting Sugar; Care or performance", 
-                "artwork_id": "7"
+                "artwork_title": "Trusting Sugar", 
+                "artwork_id": "9"
+            },
+            {
+                "artwork_title": "Care or performance", 
+                "artwork_id": "10"
             }
         ]
       },      
@@ -30,8 +34,12 @@
         "name": "Jung Min Lee",
         "artworks": [
             {
-                "artwork_title": "The Reaper, The Lock", 
-                "artwork_id": "5"
+                "artwork_title": "The Reaper", 
+                "artwork_id": "6"
+            },
+            {
+                "artwork_title": "The Lock", 
+                "artwork_id": "7"
             }
         ]
       },
@@ -45,18 +53,22 @@
             {
                 "artwork_title": "Spilled Demons II", 
                 "artwork_id": "3"
+            }, 
+            {
+                "artwork_title": "Spilled Demons I", 
+                "artwork_id": "4"
             },      
             {
                 "artwork_title": "Dream Catcher", 
-                "artwork_id": "6"
-            },
-            {
-                "artwork_title": "Come with me", 
                 "artwork_id": "8"
             },
             {
+                "artwork_title": "Come with me", 
+                "artwork_id": "11"
+            },
+            {
                 "artwork_title": "Come with me II", 
-                "artwork_id": "12"
+                "artwork_id": "15"
             }
         ]
       },
@@ -64,12 +76,12 @@
         "name": "Luca Borsato",
         "artworks": [
             {
-                "artwork_title": "19 Days in Paris", 
+                "artwork_title": "19 Days in Paris or how we became Lovers", 
                 "artwork_id": "1"
             },
             {
                 "artwork_title": "Never take away my Freedom", 
-                "artwork_id": "15"
+                "artwork_id": "18"
             }
         ]
       },
@@ -78,7 +90,7 @@
         "artworks": [
             {
                 "artwork_title": "O.T.", 
-                "artwork_id": "11"
+                "artwork_id": "14"
             }
         ]
       },
@@ -87,7 +99,7 @@
         "artworks": [
             {
                 "artwork_title": "Red Door 1", 
-                "artwork_id": "4"
+                "artwork_id": "5"
             }
         ]
       },
@@ -96,7 +108,7 @@
         "artworks": [
             {
                 "artwork_title": "Splatters", 
-                "artwork_id": "13"
+                "artwork_id": "16"
             }
         ]
       }

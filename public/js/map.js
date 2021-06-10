@@ -106,6 +106,7 @@ $(function(){
 
     // accepts percentage values on x and y axis
     function moveMapTo(xPos, yPos, mode){
+        console.log({xPos, yPos})
         let containerWidth = parseInt($(draggableContainer).width());
         let containerHeight = parseInt($(draggableContainer).height());
         let draggableWidth = parseInt($(draggable).width());
@@ -119,7 +120,7 @@ $(function(){
 
         if(mode == 'CENTER'){
             newLeft = newLeft - (containerWidth/2);
-            newTop = newTop - (containerWidth/2);
+            newTop = newTop - (containerHeight/2);
         }
 
         newLeft = -1* constrain(newLeft, 0, draggableWidth - containerWidth);

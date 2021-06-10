@@ -3,11 +3,11 @@
 
       {
         "id": "1",
-        "pos_x": 10,
-        "pos_y": 10,
+        "pos_x": 14,
+        "pos_y": 9,
         "width": 3,
         "artist_name": "Luca Borsato",
-        "title": "19 Days in Paris or how we became lovers",
+        "title": "19 Days in Paris or how we became Lovers",
         "material": "high-gloss paper",
         "dimensions": "A2",
         "date": "2020",
@@ -25,7 +25,7 @@
       {
         "id": "2",
         "pos_x": 20,
-        "pos_y": 10,
+        "pos_y": 12,
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons III",
@@ -46,8 +46,8 @@
 
       {
         "id": "3",
-        "pos_x": 30,
-        "pos_y": 10,
+        "pos_x": 49,
+        "pos_y": 9,
         "width": 3,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons II",
@@ -71,11 +71,11 @@
       },
       {
         "id": "4",
-        "pos_x": 30,
-        "pos_y": 10,
+        "pos_x": 78,
+        "pos_y": 9,
         "width": 3,
         "artist_name": "Lennart Wolter",
-        "title": "Spilled Demons II",
+        "title": "Spilled Demons I",
         "material": "salt dough",
         "dimensions": "26x24cm",
         "date": "2020",
@@ -92,8 +92,8 @@
       },
       {
         "id": "5",
-        "pos_x": 40,
-        "pos_y": 10,
+        "pos_x": 90,
+        "pos_y": 15,
         "width": 6,
         "artist_name": "Matthew Muir",
         "title": "Red Door 1",
@@ -113,8 +113,8 @@
       },
       {
         "id": "6",
-        "pos_x": 50,
-        "pos_y": 10,
+        "pos_x": 11,
+        "pos_y": 40,
         "width": 3,
         "artist_name": "Jung Min Lee",
         "title": "The Reaper",
@@ -129,17 +129,13 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
-            },
-            {
-                "image_url": "c", 
-                "image_caption": 3
             }
         ]
       },
       {
         "id": "7",
-        "pos_x": 50,
-        "pos_y": 10,
+        "pos_x": 39,
+        "pos_y": 32,
         "width": 3,
         "artist_name": "Jung Min Lee",
         "title": "The Lock",
@@ -154,18 +150,15 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
-            },
-            {
-                "image_url": "c", 
-                "image_caption": 3
             }
+            
         ]
       },
 
       {
         "id": "8",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 63,
+        "pos_y": 26,
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Dream Catcher",
@@ -187,9 +180,9 @@
 
       {
         "id": "9",
-        "pos_x": 60,
-        "pos_y": 10,
-        "width": 6,
+        "pos_x": 29,
+        "pos_y": 55,
+        "width": 3,
         "artist_name": "Hélène Padoux",
         "title": "Trusting Sugar",
         "material": "indian ink and acrylic on denim",
@@ -203,17 +196,13 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
-            },
-            {
-                "image_url": "c", 
-                "image_caption": 2
             }
         ]
       },
       {
         "id": "10",
-        "pos_x": 60,
-        "pos_y": 40,
+        "pos_x": 55,
+        "pos_y": 50,
         "width": 3,
         "artist_name": "Hélène Padoux",
         "title": "Care or performance",
@@ -233,8 +222,8 @@
       },
       {
         "id": "11",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 76,
+        "pos_y": 46,
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Come with me",
@@ -245,19 +234,15 @@
             {
                 "image_url": "a", 
                 "image_caption": 1
-            },
-            {
-                "image_url": "b", 
-                "image_caption": 2
             }
         ]
       },
       {
         "id": "12",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 84,
+        "pos_y": 46,
         "width": 6,
-        "artist_name": "Adria Lopez Pena",
+        "artist_name": "Adrian Lopez Pena",
         "title": "Glove for Tadzio",
         "material": "salix caprea leaves, watercolour, potato peel, found leather glove, resin, kale",
         "dimensions": "28x23cm",
@@ -275,8 +260,8 @@
       },
       {
         "id": "13",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 15,
+        "pos_y": 74,
         "width": 6,
         "artist_name": "Adrian Lopez Peña",
         "title": "Curtained Inlook (promotional incipit)",
@@ -287,17 +272,13 @@
             {
                 "image_url": "a", 
                 "image_caption": 1
-            },
-            {
-                "image_url": "b", 
-                "image_caption": 2
             }
         ]
       },
       {
         "id": "14",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 35,
+        "pos_y": 81,
         "width": 6,
         "artist_name": "Marek Kochanowicz",
         "title": "O.T.",
@@ -317,8 +298,8 @@
       },
       {
         "id": "15",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 53,
+        "pos_y": 74,
         "width": 6,
         "artist_name": "Lennart Wolter",
         "title": "Come with me II",
@@ -329,17 +310,13 @@
             {
                 "image_url": "a", 
                 "image_caption": 1
-            },
-            {
-                "image_url": "b", 
-                "image_caption": 2
             }
         ]
       },
       {
         "id": "16",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 68,
+        "pos_y": 77,
         "width": 6,
         "artist_name": "Simon Koza Mine",
         "title": "Splatters",
@@ -359,8 +336,8 @@
       },
       {
         "id": "17",
-        "pos_x": 60,
-        "pos_y": 10,
+        "pos_x": 90,
+        "pos_y": 78,
         "width": 6,
         "artist_name": "Adrian Lopez Peña",
         "title": "Drift (flanks)",
@@ -371,20 +348,16 @@
             {
                 "image_url": "a", 
                 "image_caption": 1
-            },
-            {
-                "image_url": "b", 
-                "image_caption": 2
             }
         ]
       },
       {
         "id": "18",
         "pos_x": 60,
-        "pos_y": 10,
+        "pos_y": 40,
         "width": 6,
         "artist_name": "Luca Borsato",
-        "title": "Never take away my freedom 2 & Pop stars 2077",
+        "title": "Never take away my freedom",
         "material": "high-gloss paper",
         "dimensions": "each A2",
         "date": "2020",

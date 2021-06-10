@@ -164,7 +164,23 @@ $(function(){
             var i = (currentSlide ? currentSlide : 0) + 1;
             $('.current-img').text(i);
             $('.img-amount').text(slick.slideCount);
+            if (slick.$slides.length-1 == currentSlide) {
+                $(this).addClass('on-last-slide');
+                $(this).find('.slick-next').addClass('on-last-slide');
+                setMouseState("close", "large");
+              } else {
+                  $(this).removeClass('on-last-slide');
+                  $(this).find('.slick-next').removeClass('on-last-slide');
+              }
         });
+
+        // setup closing on last slide
+        $(galleryContainer).on("click", ".slick-next.on-last-slide", function(){
+            closeArtwork(currentlyOpenArtworkID);
+        });
+
+
+    
 
         // shrink minimap
         let oldHeight = $(minimap).outerHeight();
@@ -216,6 +232,8 @@ $(function(){
                 height: newHeight, 
                 duration: 0.3
         });
+        setMouseState("default", 'small');
+
 
         gsap.to('.top-right .close-btn', {x: "150%", duration: 0.5});
         gsap.to('.artist-btn .inner', {x: 0, duration: 0.5});
@@ -233,7 +251,12 @@ $(function(){
     });
 
     $('.gallery-container').on("mouseenter", ".slick-next", function(){
-        setMouseState("arrowright" , 'large');
+        // TODO: Check if is on last slide
+        if($(this).hasClass('on-last-slide')){
+            setMouseState("close" , 'medium');
+        } else {
+            setMouseState("arrowright" , 'large');
+        }
     });
     $('.gallery-container').on("mouseleave", ".slick-next", function(){
         setMouseState("close" , 'small');
@@ -448,13 +471,13 @@ $(function(){
             .set(".brand", {color:"white"})
             .set(".about-top-area", {css: {borderLeftColor:"transparent"}})
             .set(".minimap", {y: "102%"})
-            .to(".interface", {x: "0%", duration: 4})
-            .to(".interface", {y: "0%", duration: 2})
-            .to(".interface", {right:"0vw", duration: 2})
-            .to(".minimap", {y: "0", duration: 2})
+            .to(".interface", {x: "0%", duration: 2})
+            .to(".interface", {y: "0%", duration: 1})
+            .to(".interface", {right:"0vw", duration: 1})
+            .to(".minimap", {y: "0", duration: 1})
             .to(".interface", {color:"white", duration: 1})
             .to(".about-top-area", {css: {borderLeftColor:"white"}}, "<")
-            .to(".map-container", {opacity: 1, duration: 2.25}, "<2");
+            .to(".map-container", {opacity: 1, duration: 2.25}, "2");
     }
     playIntroAnimation();
 })
