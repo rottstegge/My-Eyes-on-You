@@ -65,9 +65,16 @@ div{
         
         
     }
+    .about.section{
+    padding-bottom: 2rem;
+    }
+    .imprint.sectiony{
+        border-bottom: none;
+    }
     .about-top-area{
         border-bottom: $gridline;
         border-left: $gridline;
+
 
     }
     .about-btn{
@@ -90,12 +97,11 @@ div{
         @include text-m;
         position:absolute;
         height: 0px;
-        border-left: $gridline;
-        border-right: $gridline;
+        border-left: ($grid-strokeweight * 0.5) solid white;
+        border-right: ($grid-strokeweight * 0.5) solid white;
         border-color: transparent;
         margin-right: $grid-strokeweight * -0.5;
         padding-top: 0;
-        padding-bottom: 0;
 
         overflow: hidden;
         grid-row: 2/3;
@@ -504,7 +510,7 @@ div{
     
     .artwork-info{
         display: grid;
-        grid-template-columns: 3fr 3fr 2fr;
+        grid-template-columns: 3fr 3fr 2fr 8vw;
         border-top: $gridline;
         border-left: $gridline;
 

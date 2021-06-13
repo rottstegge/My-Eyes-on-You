@@ -275,6 +275,20 @@ $(function(){
     $('.imprint-btn').on("mouseleave", function(){
         setMouseState("close" , 'small');
     });
+    $(document).on("click", function(){
+        if(aboutIsOpen != true){
+            console.log("1");
+            console.log(aboutIsOpen);
+
+            return;
+        };
+        if(isHovered('.about-area')  == true){
+            console.log("1");
+            return;
+        }
+        closeAboutArea();
+    })
+
 
 
 
@@ -401,6 +415,9 @@ $(function(){
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
+        setTimeout(() => {
+            aboutIsOpen = true;
+        }, 500);
     }
 
     function closeAboutArea(){
@@ -415,7 +432,9 @@ $(function(){
         .to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3}, "<=");
 
         $(aboutArea).removeClass('open');
-    }
+        setTimeout(() => {
+            aboutIsOpen = false;
+        }, 500);    }
 
     // scroll to imprint
     $('.imprint-btn').on('click', function(e){
@@ -483,3 +502,9 @@ $(function(){
 })
 
 
+
+function isHovered(selector) {
+
+    return $(selector+":hover").length > 0
+
+}

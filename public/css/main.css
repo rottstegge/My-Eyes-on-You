@@ -211,6 +211,9 @@ h2 {
   margin-bottom: 1rem;
   padding-top: 2rem; }
 
+.about h2 {
+  font-style: italic; }
+
 h3 {
   margin-bottom: 0;
   padding-top: 2rem; }
@@ -275,6 +278,10 @@ div {
     grid-column: 1/2;
     border-bottom: 2px solid white;
     padding: 2.5rem; }
+  .interface .about.section {
+    padding-bottom: 2rem; }
+  .interface .imprint.sectiony {
+    border-bottom: none; }
   .interface .about-top-area {
     border-bottom: 2px solid white;
     border-left: 2px solid white; }
@@ -295,12 +302,11 @@ div {
     font-size: 3.5rem;
     position: absolute;
     height: 0px;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
     border-color: transparent;
     margin-right: -1px;
     padding-top: 0;
-    padding-bottom: 0;
     overflow: hidden;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -572,7 +578,7 @@ div {
       border-top: 2px solid white; }
   .single-artwork-overlay .artwork-info {
     display: grid;
-    grid-template-columns: 3fr 3fr 2fr;
+    grid-template-columns: 3fr 3fr 2fr 8vw;
     border-top: 2px solid white;
     border-left: 2px solid white; }
     .single-artwork-overlay .artwork-info div {
