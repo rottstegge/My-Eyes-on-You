@@ -53,8 +53,9 @@ $(function(){
             let newLeft = currentLeft-mouseXDelta;
             let newTop = currentTop-mouseYDelta;
 
-            draggableWidth = $(draggable).width();
-            draggableHeight = $(draggable).height();
+            draggableWidth = $(draggable).outerWidth();
+            draggableHeight = $(draggable).outerHeight();
+
 
             // prevent moving out of screen
             newLeft = constrain(newLeft, (draggableWidth-draggableContainerWidth)*-1, 0);

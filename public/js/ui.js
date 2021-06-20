@@ -36,7 +36,7 @@ $(function(){
             } else {
                 $(artistArea).addClass('open');
                 var tl = gsap.timeline();
-                tl.to(artistArea, {width: $(minimap).width()+borderWidth, duration: 0.25})
+                tl.to(artistArea, {width: $(minimap).width()+2, duration: 0.25})
                     .to(artistArea, {height: "100vh", duration: 0.25});
                 $(this).addClass('active');
             }
@@ -136,6 +136,11 @@ $(function(){
         let overlay = $('.single-artwork-overlay');
         $(overlay).removeClass('tease');
         $(overlay).addClass('open');
+        gsap.to(overlay, 
+            {
+                height: "100%",
+                duration: 0.3
+        });
 
         // close ArtistList if its open
         if($(artistArea).hasClass('open')){
@@ -172,10 +177,16 @@ $(function(){
                   $(this).removeClass('on-last-slide');
                   $(this).find('.slick-next').removeClass('on-last-slide');
               }
+
+            // add classes to slick container that have only one image to trigger close on click
+            if(slick.$slides.length == 1){
+                console.log("only one image found");
+                $(this).addClass('slick-next on-last-slide');
+            }
         });
 
         // setup closing on last slide
-        $(galleryContainer).on("click", ".slick-next.on-last-slide", function(){
+        $(galleryContainer).parent().on("click", ".slick-next.on-last-slide", function(){
             closeArtwork(currentlyOpenArtworkID);
         });
 
@@ -185,7 +196,7 @@ $(function(){
         // shrink minimap
         let oldHeight = $(minimap).outerHeight();
         let oldWidth = $(minimap).outerWidth();
-        let newHeight = $('.single-artwork-overlay .metainfo-container').outerHeight();
+        let newHeight = $('.single-artwork-overlay .metainfo-container').outerHeight() - 2;
         let newWidth = oldWidth / (oldHeight / newHeight);
         gsap.to(minimap, 
             {
@@ -250,7 +261,7 @@ $(function(){
         setMouseState("close", 'small');
     });
 
-    $('.gallery-container').on("mouseenter", ".slick-next", function(){
+    $('.single-artwork-overlay').on("mouseenter", ".slick-next", function(){
         // TODO: Check if is on last slide
         if($(this).hasClass('on-last-slide')){
             setMouseState("close" , 'medium');
@@ -269,19 +280,16 @@ $(function(){
     $('.about-area').on("mouseleave", function(){
         setMouseState("close" , 'small');
     });
-    $('.imprint-btn').on("mouseenter", function(){
+    $('.contact-btn').on("mouseenter", function(){
         setMouseState("default" , 'small');
     });
-    $('.imprint-btn').on("mouseleave", function(){
+    $('.contact-btn').on("mouseleave", function(){
         setMouseState("close" , 'small');
     });
     $(document).on("click", function(){
         if(aboutIsOpen != true){
-            console.log("1");
-            console.log(aboutIsOpen);
-
             return;
-        };
+        }
         if(isHovered('.about-area')  == true){
             console.log("1");
             return;
@@ -410,8 +418,8 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.to('.about-btn .inner', {x: newButtonX, duration: 0.3})
-            .set('.about-btn .imprint-btn', {opacity: 1}, "<")
-            .to('.about-btn .imprint-btn', {y: 0, duration: 0.3}, "<")
+            .set('.about-btn .contact-btn', {opacity: 1}, "<")
+            .to('.about-btn .contact-btn', {y: 0, duration: 0.3}, "<")
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
@@ -426,23 +434,33 @@ $(function(){
 
         var tl = gsap.timeline();
         tl.set(aboutArea, {height:0})
-        .to('.about-btn .imprint-btn', {y: "-150%", duration: 0.3}, "<")
-        .set('.about-btn .imprint-btn', {opacity: 1})
+        .to('.about-btn .contact-btn', {y: "-150%", duration: 0.3}, "<")
+        .set('.about-btn .contact-btn', {opacity: 1})
         .to('.about-btn .inner', {x: 0, duration: 0.5})
         .to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3}, "<=");
 
         $(aboutArea).removeClass('open');
         setTimeout(() => {
             aboutIsOpen = false;
-        }, 500);    }
+        }, 500);    
 
-    // scroll to imprint
-    $('.imprint-btn').on('click', function(e){
-        console.log("clicked imprint buttn");
+        setMouseState("default" , 'small');
+
+    
+    }
+
+    // scroll to contact
+    $('.contact-btn').on('click', function(e){
+        console.log("clicked contact buttn");
         e.stopPropagation();
-        let offset = $(".imprint.section").offset().top;
+        offset = $(".about-area").scrollTop()+$(".contact.section").offset().top - parseInt($('.about-top-area').outerHeight())-20;
+        console.log("offset")
+        console.log(offset)
+
         gsap.to('.about-area', {scrollTop: offset, duration: 0.5});
     })
+
+
 
 
     // making the grids match

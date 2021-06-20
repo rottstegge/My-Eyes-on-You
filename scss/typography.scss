@@ -42,8 +42,8 @@ html {
 
 
 h2{
+    @include text-l;
     margin-bottom: 1rem;
-    padding-top: 2rem;
 }
 
 .about h2{

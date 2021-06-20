@@ -208,8 +208,8 @@ html {
   font-size: 0.4vw; }
 
 h2 {
-  margin-bottom: 1rem;
-  padding-top: 2rem; }
+  font-size: 5rem;
+  margin-bottom: 1rem; }
 
 .about h2 {
   font-style: italic; }
@@ -280,8 +280,12 @@ div {
     padding: 2.5rem; }
   .interface .about.section {
     padding-bottom: 2rem; }
-  .interface .imprint.sectiony {
+  .interface .imprint.section {
     border-bottom: none; }
+  .interface .contact.section .people {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr 1fr; }
   .interface .about-top-area {
     border-bottom: 2px solid white;
     border-left: 2px solid white; }
@@ -291,7 +295,7 @@ div {
     padding: 2.5rem;
     text-align: right;
     position: relative; }
-    .interface .about-btn .imprint-btn {
+    .interface .about-btn .contact-btn {
       position: absolute;
       right: 0;
       top: 0;
@@ -302,10 +306,8 @@ div {
     font-size: 3.5rem;
     position: absolute;
     height: 0px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-color: transparent;
-    margin-right: -1px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
     padding-top: 0;
     overflow: hidden;
     grid-row: 2/3;
@@ -314,12 +316,13 @@ div {
     .interface .about-area.open {
       border-color: white;
       overflow: scroll;
-      pointer-events: all;
-      border-width: unset; }
+      pointer-events: all; }
     .interface .about-area .section {
-      border-bottom: 2px solid white;
       padding-left: 2.5rem;
-      padding-right: 2.5rem; }
+      padding-right: 2.5rem;
+      padding-bottom: 3rem; }
+    .interface .about-area .section:not(:last-child) {
+      border-bottom: 2px solid white; }
     .interface .about-area .logo {
       width: 20%;
       height: auto; }
@@ -393,8 +396,7 @@ div {
           .interface .artist-area .artistlist-entry .artist-artworks-list.open .artwork:not(:last-of-type) {
             border-bottom: 2px solid white; }
   .interface .minimap {
-    border-left: 2px solid white;
-    border-top: 2px solid white;
+    outline: 2px solid white;
     background-size: cover;
     background-image: url("../content/img/map-mini.png");
     position: absolute;
@@ -404,7 +406,7 @@ div {
       position: absolute;
       width: 20%;
       height: 20%;
-      border: 2px solid white;
+      outline: 2px solid white;
       pointer-events: none; }
 
 .borderanim::after {
@@ -441,9 +443,11 @@ div {
     left: 0;
     width: 3000px;
     height: auto;
+    display: block;
     perspective: 180vw; }
     .map-container .map-draggable .map-background {
       position: relative;
+      display: block;
       width: 100%;
       height: auto; }
     .map-container .map-draggable .artwork-thumbnails {
@@ -492,7 +496,8 @@ div {
           opacity: 0; }
     .map-container .map-draggable .map-background img {
       width: 100%;
-      height: auto; }
+      height: auto;
+      display: block; }
 
 .single-artwork-overlay {
   background-color: rgba(0, 0, 0, 0);
@@ -584,7 +589,8 @@ div {
     .single-artwork-overlay .artwork-info div {
       padding: 1.25rem; }
     .single-artwork-overlay .artwork-info .title, .single-artwork-overlay .artwork-info .series {
-      border-right: 2px solid white; }
+      border-right: 2px solid white;
+      font-style: italic; }
     .single-artwork-overlay .artwork-info .material {
       grid-column: 1/3;
       border-right: 2px solid white; }

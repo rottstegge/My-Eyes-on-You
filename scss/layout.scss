@@ -68,8 +68,20 @@ div{
     .about.section{
     padding-bottom: 2rem;
     }
-    .imprint.sectiony{
+    .imprint.section{
         border-bottom: none;
+    }
+    .contact.section{
+        .people{
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .person a{
+                
+            }
+ 
+        }
     }
     .about-top-area{
         border-bottom: $gridline;
@@ -84,7 +96,7 @@ div{
         text-align: right; 
         position: relative;
 
-        .imprint-btn{
+        .contact-btn{
             position: absolute;
             right: 0;
             top: 0;
@@ -97,10 +109,8 @@ div{
         @include text-m;
         position:absolute;
         height: 0px;
-        border-left: ($grid-strokeweight * 0.5) solid white;
-        border-right: ($grid-strokeweight * 0.5) solid white;
-        border-color: transparent;
-        margin-right: $grid-strokeweight * -0.5;
+        border-left: $gridline;
+        border-right: $gridline;
         padding-top: 0;
 
         overflow: hidden;
@@ -112,13 +122,15 @@ div{
 
             overflow: scroll;
             pointer-events: all;
-            border-width: unset;
         }
 
         .section{
-            border-bottom:  $gridline;
             padding-left: $cell-padding;
             padding-right: $cell-padding;
+            padding-bottom: 3rem;
+        }
+        .section:not(:last-child){
+            border-bottom: ($grid-strokeweight) solid white;
         }
 
         .logo{
@@ -245,8 +257,7 @@ div{
     
     .minimap{
         
-        border-left: $gridline;
-        border-top: $gridline;
+        outline: $gridline;
         background-size: cover;
         background-image: url('../content/img/map-mini.png');
         position: absolute;
@@ -257,7 +268,7 @@ div{
             position: absolute;
             width: 20%;
             height: 20%;
-            border: $gridline;
+            outline: $gridline;
             pointer-events: none;
         }
     }
@@ -307,11 +318,13 @@ div{
         left: 0;  
         width: 3000px;
         height: auto;
+        display:block;
         perspective: 180vw;
 
         
         .map-background{
             position: relative;
+            display:block;
             width: 100%;
             height: auto;
         }
@@ -381,6 +394,7 @@ div{
             img{
                 width: 100%;
                 height: auto;
+                display:block;
             }
         }
     }
@@ -404,8 +418,10 @@ div{
     transition: background-color 0.3s ease-in;
     display: none;
 
+
     &.open{
         display: grid;
+
         background-color: rgba($color: black, $alpha: 0.5);
         .galleryindicator, .date, .material, .series, .dimensions {
             opacity: 1;
@@ -521,6 +537,7 @@ div{
         
         .title, .series{
             border-right: $gridline;
+            font-style: italic;
         }
         .material{
             grid-column: 1/3;
