@@ -3,12 +3,12 @@
 
       {
         "id": "1",
-        "pos_x": 14,
-        "pos_y": 9,
+        "pos_x": 16,
+        "pos_y": 19,
         "width": 4,
         "artist_name": "Luca Borsato",
         "title": "19 Days in Paris or how we became Lovers",
-        "material": "high-gloss paper",
+        "material": "digital print on high-gloss paper",
         "dimensions": "A2",
         "date": "2020",
         "images": [
@@ -24,8 +24,8 @@
       },
       {
         "id": "2",
-        "pos_x": 20,
-        "pos_y": 12,
+        "pos_x": 26,
+        "pos_y": 24,
         "width": 8,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons III",
@@ -46,8 +46,8 @@
 
       {
         "id": "3",
-        "pos_x": 49,
-        "pos_y": 9,
+        "pos_x": 45,
+        "pos_y": 13,
         "width": 4,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons II",
@@ -71,8 +71,8 @@
       },
       {
         "id": "4",
-        "pos_x": 78,
-        "pos_y": 9,
+        "pos_x": 50,
+        "pos_y": 19,
         "width": 4,
         "artist_name": "Lennart Wolter",
         "title": "Spilled Demons I",
@@ -92,8 +92,8 @@
       },
       {
         "id": "5",
-        "pos_x": 90,
-        "pos_y": 15,
+        "pos_x": 63,
+        "pos_y": 13,
         "width": 8,
         "artist_name": "Matthew Muir",
         "title": "Red Door 1",
@@ -113,12 +113,12 @@
       },
       {
         "id": "6",
-        "pos_x": 11,
-        "pos_y": 40,
+        "pos_x": 78,
+        "pos_y": 13,
         "width": 4,
         "artist_name": "Jung Min Lee",
         "title": "The Reaper",
-        "material": "oil on canvas and PLA 3D printed frame",
+        "material": "oil on canvas, silver leaf, PLA 3D printed frame",
         "dimensions": "38x35x40cm",
         "date": "2020",
         "images": [
@@ -134,12 +134,12 @@
       },
       {
         "id": "7",
-        "pos_x": 39,
-        "pos_y": 32,
+        "pos_x": 85,
+        "pos_y": 12,
         "width": 4,
         "artist_name": "Jung Min Lee",
         "title": "The Lock",
-        "material": "oil on canvas and PLA 3D printed frame",
+        "material": "oil on canvas, silver leaf, PLA 3D printed frame",
         "dimensions": "34x27.5x40cm",
         "date": "2020",
         "images": [
@@ -157,8 +157,8 @@
 
       {
         "id": "8",
-        "pos_x": 63,
-        "pos_y": 26,
+        "pos_x": 92,
+        "pos_y": 17,
         "width": 8,
         "artist_name": "Lennart Wolter",
         "title": "Dream Catcher",
@@ -180,8 +180,8 @@
 
       {
         "id": "9",
-        "pos_x": 29,
-        "pos_y": 55,
+        "pos_x": 55,
+        "pos_y": 37,
         "width": 4,
         "artist_name": "Hélène Padoux",
         "title": "Trusting Sugar",
@@ -201,8 +201,8 @@
       },
       {
         "id": "10",
-        "pos_x": 55,
-        "pos_y": 50,
+        "pos_x": 67,
+        "pos_y": 36,
         "width": 4,
         "artist_name": "Hélène Padoux",
         "title": "Care or performance",
@@ -222,8 +222,8 @@
       },
       {
         "id": "11",
-        "pos_x": 76,
-        "pos_y": 46,
+        "pos_x": 27,
+        "pos_y": 41,
         "width": 4,
         "artist_name": "Lennart Wolter",
         "title": "Come with me",
@@ -239,10 +239,10 @@
       },
       {
         "id": "12",
-        "pos_x": 84,
-        "pos_y": 46,
+        "pos_x": 23,
+        "pos_y": 63,
         "width": 4,
-        "artist_name": "Adrian Lopez Pena",
+        "artist_name": "Adrian Lopez Peña",
         "title": "Glove for Tadzio",
         "material": "salix caprea leaves, watercolour, potato peel, found leather glove, resin, kale",
         "dimensions": "28x23cm",
@@ -260,8 +260,8 @@
       },
       {
         "id": "13",
-        "pos_x": 15,
-        "pos_y": 74,
+        "pos_x": 33,
+        "pos_y": 59,
         "width": 4,
         "artist_name": "Adrian Lopez Peña",
         "title": "Curtained Inlook (promotional incipit)",
@@ -277,8 +277,8 @@
       },
       {
         "id": "14",
-        "pos_x": 35,
-        "pos_y": 81,
+        "pos_x": 60,
+        "pos_y": 67,
         "width": 4,
         "artist_name": "Marek Kochanowicz",
         "title": "O.T.",
@@ -298,8 +298,8 @@
       },
       {
         "id": "15",
-        "pos_x": 53,
-        "pos_y": 74,
+        "pos_x": 84,
+        "pos_y": 60,
         "width": 8,
         "artist_name": "Lennart Wolter",
         "title": "Come with me II",
@@ -315,8 +315,8 @@
       },
       {
         "id": "16",
-        "pos_x": 68,
-        "pos_y": 77,
+        "pos_x": 71,
+        "pos_y": 82,
         "width": 8,
         "artist_name": "Simon Koza Mine",
         "title": "Splatters",
@@ -336,8 +336,8 @@
       },
       {
         "id": "17",
-        "pos_x": 90,
-        "pos_y": 78,
+        "pos_x": 42,
+        "pos_y": 90,
         "width": 4,
         "artist_name": "Adrian Lopez Peña",
         "title": "Drift (flanks)",
@@ -353,12 +353,12 @@
       },
       {
         "id": "18",
-        "pos_x": 60,
-        "pos_y": 40,
+        "pos_x": 25,
+        "pos_y": 76,
         "width": 4,
         "artist_name": "Luca Borsato",
-        "title": "Never take away my freedom",
-        "material": "high-gloss paper",
+        "title": "Never take away my freedom2 & Pop stars 2077",
+        "material": "digital print on high-gloss paper",
         "dimensions": "each A2",
         "date": "2020",
         "images": [

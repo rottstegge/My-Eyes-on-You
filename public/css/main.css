@@ -253,13 +253,25 @@ div {
   height: 7vw;
   position: fixed;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -50vw;
+  top: -50vw;
   transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none; }
   .cursor-container .cursor-svg #externallink, .cursor-container .cursor-svg #close, .cursor-container .cursor-svg #arrowleft, .cursor-container .cursor-svg #arrowright, .cursor-container .cursor-svg #open {
     visibility: hidden; }
+
+.debug-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50;
+  height: 50;
+  background: rgba(0, 0, 255, 0.3);
+  font-size: 10px;
+  z-index: 1000;
+  pointer-events: none;
+  color: white; }
 
 .interface {
   position: fixed;
@@ -324,6 +336,8 @@ div {
     .interface .about-area .section:not(:last-child) {
       border-bottom: 2px solid white; }
     .interface .about-area .logo {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
       width: 20%;
       height: auto; }
   .interface .top-right {
@@ -589,8 +603,11 @@ div {
     .single-artwork-overlay .artwork-info div {
       padding: 1.25rem; }
     .single-artwork-overlay .artwork-info .title, .single-artwork-overlay .artwork-info .series {
-      border-right: 2px solid white;
       font-style: italic; }
+    .single-artwork-overlay .artwork-info .series {
+      border-right: 2px solid white; }
+    .single-artwork-overlay .artwork-info .series:not(:empty) {
+      border-left: 2px solid white; }
     .single-artwork-overlay .artwork-info .material {
       grid-column: 1/3;
       border-right: 2px solid white; }

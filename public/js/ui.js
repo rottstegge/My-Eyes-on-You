@@ -250,6 +250,7 @@ $(function(){
         gsap.to('.artist-btn .inner', {x: 0, duration: 0.5});
         gsap.to('.about-btn .inner', {y: 0, duration: 0.5});
         gsap.set('.top-right .close-btn', {opacity: 0, delay: 0.5});
+        gsap.to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3});
         gsap.to('.map-background', {opacity: 1, duration: 0.3});
     }
 

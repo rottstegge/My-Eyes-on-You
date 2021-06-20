@@ -5,12 +5,36 @@ $(function(){
     let cursorSVG = $('.cursor-svg');
     let defaultPath = $('path#default');
     
+    // for debug purposes
+    let debugCursor = $('.debug-cursor');
+    let draggable = $('.map-draggable');
+    
     // make object follow mouse
     $(window).on('mousemove', function(event){
         $(cursorContainer).css({
             'left': event.pageX,
             'top': event.pageY
         });
+
+        $(debugCursor).css({
+            'left': event.pageX,
+            'top': event.pageY
+        });
+
+
+        let mouseX = event.pageX;
+        let mouseY = event.pageY;
+        mouseX = mouseX + (parseInt($(draggable).css('left'))*-1);
+        mouseY = mouseY + (parseInt($(draggable).css('top'))*-1);
+
+        mouseX = parseInt(mouseX / parseInt($(draggable).width())*100);
+        mouseY = parseInt(mouseY / parseInt($(draggable).height())*100);
+
+
+        let string = "xPos:" + mouseX + " | yPos: " + mouseY;
+        $(debugCursor).html(string);
+
+
     })
     
     

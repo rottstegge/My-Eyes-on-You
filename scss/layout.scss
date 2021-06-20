@@ -25,8 +25,8 @@ div{
     height: 7vw;
     position: fixed;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -50vw;
+    top: -50vw;
     transform: translate(-50%, -50%);
     z-index: 2;
     pointer-events: none;
@@ -37,6 +37,19 @@ div{
             visibility: hidden;
         }
     }
+}
+
+.debug-cursor{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50;
+    height: 50;
+    background: rgba(0, 0, 255, 0.3);
+    font-size: 10px;
+    z-index: 1000;
+    pointer-events: none;
+    color: white;
 }
 
 .interface{
@@ -134,6 +147,8 @@ div{
         }
 
         .logo{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
             width: 20%;
             height: auto;
         }
@@ -536,8 +551,13 @@ div{
         }
         
         .title, .series{
-            border-right: $gridline;
             font-style: italic;
+        }
+        .series{
+            border-right: $gridline;
+        }
+        .series:not(:empty){
+            border-left: $gridline;
         }
         .material{
             grid-column: 1/3;
