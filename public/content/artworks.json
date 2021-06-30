@@ -83,10 +83,6 @@
             {
                 "image_url": "a", 
                 "image_caption": 1
-            },
-            {
-                "image_url": "b", 
-                "image_caption": 2
             }
         ]
       },
@@ -293,6 +289,10 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
+            },
+            {
+                "image_url": "c", 
+                "image_caption": 3
             }
         ]
       },
@@ -369,6 +369,10 @@
             {
                 "image_url": "b", 
                 "image_caption": 2
+            },
+            {
+                "image_url": "c", 
+                "image_caption": 3
             }
         ]
       }
