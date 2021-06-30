@@ -209,7 +209,8 @@ html {
 
 h2 {
   font-size: 5rem;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  font-style: normal; }
 
 .about h2 {
   font-style: italic; }

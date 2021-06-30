@@ -27,6 +27,8 @@ html {
 
 
 
+
+
 @mixin text-s{
     font-size: 1rem;
 }
@@ -44,6 +46,7 @@ html {
 h2{
     @include text-l;
     margin-bottom: 1rem;
+    font-style: normal;
 }
 
 .about h2{

@@ -11,7 +11,7 @@ $(function(){
     let aboutArea = $('.about-area');
     let cursorContainer = $('.cursor-container');
     let borderWidth = 4; // px to align stuff
-
+    let currentlyPlayingIntroAnimation = false;
 
 
 
@@ -314,6 +314,7 @@ $(function(){
 
 
     function teaseArtwork(id){
+        if(currentlyPlayingIntroAnimation){return}
         if(!currentlyOpenArtworkID == null){return}
         gsap.to([".map-background",".artwork-thumbnail:not([artwork-id='"+id+"']) .blend-image"], {opacity: 0.3, duration: 0.3});
         populateOverlayContent(id);
@@ -501,9 +502,13 @@ $(function(){
 
 
     function playIntroAnimation(){
+        currentlyPlayingIntroAnimation = true;
 
 
-        var interfaceIntro = gsap.timeline();
+        var interfaceIntro = gsap.timeline({
+            onComplete: function(){currentlyPlayingIntroAnimation = false;}
+            }
+        );
         interfaceIntro
             .set(".interface", {x: "100%", y: "50%", right:"-30vw", color:"transparent"})
             .set(".brand", {color:"white"})
