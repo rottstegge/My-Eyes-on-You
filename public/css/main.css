@@ -207,6 +207,14 @@ html {
   font-family: 'Diatype', 'Helvetica', 'sans-serif';
   font-size: 0.4vw; }
 
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 3.2px; } }
+
+@media only screen and (max-width: 400px) {
+  .touchdevicepromt {
+    display: block; } }
+
 h2 {
   font-size: 5rem;
   margin-bottom: 1rem;
@@ -264,6 +272,15 @@ div {
   .cursor-container .cursor-svg #externallink, .cursor-container .cursor-svg #close, .cursor-container .cursor-svg #arrowleft, .cursor-container .cursor-svg #arrowright, .cursor-container .cursor-svg #open {
     visibility: hidden; }
 
+.touch-device-prompt {
+  grid-row: 3/5;
+  grid-column: 1/3;
+  padding: 2.5rem;
+  display: none; }
+  @media (max-width: 576px) {
+    .touch-device-prompt {
+      display: block; } }
+
 .debug-cursor {
   position: fixed;
   top: 0;
@@ -274,7 +291,8 @@ div {
   font-size: 10px;
   z-index: 1000;
   pointer-events: none;
-  color: white; }
+  color: white;
+  display: none; }
 
 .interface {
   position: fixed;
@@ -317,6 +335,10 @@ div {
       transform: translateY(-150%);
       padding: 2.5rem;
       opacity: 0; }
+    @media (max-width: 576px) {
+      .interface .about-btn {
+        color: transparent;
+        pointer-events: none; } }
   .interface .about-area {
     font-size: 3.5rem;
     position: absolute;
@@ -360,6 +382,10 @@ div {
     padding: 2.5rem;
     border-bottom: 2px solid transparent;
     position: relative; }
+    @media (max-width: 576px) {
+      .interface .artist-btn {
+        color: transparent;
+        pointer-events: none; } }
     .interface .artist-btn .close-btn {
       position: absolute;
       display: none;
@@ -451,6 +477,9 @@ div {
   padding: 0;
   background-color: black;
   opacity: 0; }
+  @media (max-width: 576px) {
+    .map-container {
+      display: none; } }
   .map-container .map-draggable {
     min-width: 100%;
     min-height: 100%;

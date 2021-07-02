@@ -419,9 +419,10 @@ $(function(){
         console.log(newButtonX);
 
         var tl = gsap.timeline();
-        tl.to('.about-btn .inner', {x: newButtonX, duration: 0.3})
+        tl.to('.about-btn .inner', {x: newButtonX, duration: 0.4})
+            .to('.about-btn', {textAlign: "left"}, "<")
             .set('.about-btn .contact-btn', {opacity: 1}, "<")
-            .to('.about-btn .contact-btn', {y: 0, duration: 0.3}, "<")
+            .to('.about-btn .contact-btn', {y: 0, duration: 0.4}, "<")
             .set(aboutArea, {height:newHeight});
 
         $(aboutArea).addClass('open');
@@ -439,6 +440,7 @@ $(function(){
         .to('.about-btn .contact-btn', {y: "-150%", duration: 0.3}, "<")
         .set('.about-btn .contact-btn', {opacity: 1})
         .to('.about-btn .inner', {x: 0, duration: 0.5})
+        .to('.about-btn', {textAlign: "right"}, "<")
         .to([".map-background",".artwork-thumbnail .blend-image"], {opacity: 1, duration: 0.3}, "<=");
 
         $(aboutArea).removeClass('open');
@@ -472,7 +474,9 @@ $(function(){
 
         // layout for minimap
         let ratio = $('.map-background').outerWidth() /  $('.map-background').outerHeight();
-        let newWidth = $('.artist-btn').outerWidth() + $('.about-btn').outerWidth();
+        //let newWidth = $('.artist-btn').outerWidth() + $('.about-btn').outerWidth();
+        let newWidth = $('.artist-btn').outerWidth() + $('.contact-btn').outerWidth();
+        $('.about-btn').css('width', $('.contact-btn').outerWidth());
         $(minimap).attr({
             "data-default-width": newWidth,
             "data-default-height": (newWidth/ratio)

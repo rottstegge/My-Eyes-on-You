@@ -24,6 +24,17 @@ html {
     font-size: 0.4vw;
 }
 
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 3.2px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .touchdevicepromt {
+        display: block;
+    }
+  }
 
 
 

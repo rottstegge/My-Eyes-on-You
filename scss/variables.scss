@@ -5,3 +5,17 @@ $gridline-hidden: $grid-strokeweight solid transparent;
 
 $cell-padding: 2.5rem;
 $text-color: white;
+
+
+// Mobile Queries
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
+ }
+
+ @mixin tablet {
+    @media (max-width: 780px) {
+        @content;
+    }
+ }
