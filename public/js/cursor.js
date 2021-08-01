@@ -1,6 +1,6 @@
 
 $(function(){
-    console.log("cursor.js");
+    // console.log("cursor.js");
     let cursorContainer = $('.cursor-container');
     let cursorSVG = $('.cursor-svg');
     let defaultPath = $('path#default');
@@ -74,11 +74,11 @@ $(function(){
         let tl = gsap.timeline();
 
         if(oldState !== newState){
-            console.log("new state: " + newState + "  old state: " + oldState);
+            // console.log("new state: " + newState + "  old state: " + oldState);
             tl.to(defaultPath, {morphSVG: {shape: `#${newState}`}, duration: 0.3});
         }
 
-        console.log("new size: " + newSize);
+        // console.log("new size: " + newSize);
 
         switch(newSize){
             case "small":

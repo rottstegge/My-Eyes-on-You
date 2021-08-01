@@ -1,7 +1,7 @@
 // implement map drag and zooming functionality
 
 $(function(){
-    console.log("map.js ready");
+    // console.log("map.js ready");
     let mousedown = false;
     let currentTop = 0;
     let currentLeft = 0;
@@ -80,8 +80,8 @@ $(function(){
        let left = $(artworkThumbnail).attr('data-left');
        let top = $(artworkThumbnail).attr('data-top');
 
-        console.log("clicked on " + id + " in the list");
-        console.log({left, top});
+        // console.log("clicked on " + id + " in the list");
+        // console.log({left, top});
 
         moveMapTo(parseInt(left), parseInt(top), "CENTER");
 
@@ -107,7 +107,7 @@ $(function(){
 
     // accepts percentage values on x and y axis
     function moveMapTo(xPos, yPos, mode){
-        console.log({xPos, yPos})
+        // console.log({xPos, yPos})
         let containerWidth = parseInt($(draggableContainer).width());
         let containerHeight = parseInt($(draggableContainer).height());
         let draggableWidth = parseInt($(draggable).width());
@@ -160,7 +160,7 @@ $(function(){
     });
     // for dragging
     $('.minimap').on("mousemove", function(event){
-        console.log(event.which);
+        // console.log(event.which);
         if(event.which !== 1){return;}
         let indicator = positionIndicator;
         let indicatorWidth = parseInt($(indicator).width());

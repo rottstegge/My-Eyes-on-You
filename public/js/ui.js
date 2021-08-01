@@ -1,4 +1,4 @@
-console.log("ui.js loaded");
+// console.log("ui.js loaded");
 
 
 
@@ -85,7 +85,7 @@ $(function(){
            $(this).off("mouseup"); // unbind mousemove handler
            if (!mouseMoved) {
                 let id = $(this).attr("artwork-id");
-                console.log(id);
+                // console.log(id);
                 openArtwork(id);
            }
         })        
@@ -115,7 +115,6 @@ $(function(){
 
     // hover states for ArtistList
     $('.artist-area').on("mouseenter", ".artwork", function(){
-        console.log("blaaahah");
         if($(overlay).hasClass('open') ||  $(aboutArea).hasClass('open') ){ 
             return;
          }        let id = $(this).attr("artwork-id");
@@ -180,7 +179,7 @@ $(function(){
 
             // add classes to slick container that have only one image to trigger close on click
             if(slick.$slides.length == 1){
-                console.log("only one image found");
+                // console.log("only one image found");
                 $(this).addClass('slick-next on-last-slide');
             }
         });
@@ -292,7 +291,7 @@ $(function(){
             return;
         }
         if(isHovered('.about-area')  == true){
-            console.log("1");
+            // console.log("1");
             return;
         }
         closeAboutArea();
@@ -335,7 +334,7 @@ $(function(){
             {transform: "translateY(10vh)", duration: 0.3, onComplete: removeClass}
         );
         function removeClass(){
-            console.log("untease");
+            // console.log("untease");
             $(overlay).removeClass('tease');
             gsap.set(overlay, 
                 {transform: "translateY(0)"}
@@ -416,7 +415,7 @@ $(function(){
         let newHeight = $(window).height() - $('.brand').outerHeight();
         let newButtonX = parseInt($('.about-btn').position(window).left) * -1 + parseInt($('.brand').outerWidth()) + parseInt($('.about-btn').css('padding')); 
         newButtonX = $('.about-btn').attr('transform-x');
-        console.log(newButtonX);
+        // console.log(newButtonX);
 
         var tl = gsap.timeline();
         tl.to('.about-btn .inner', {x: newButtonX, duration: 0.4})
@@ -455,11 +454,11 @@ $(function(){
 
     // scroll to contact
     $('.contact-btn').on('click', function(e){
-        console.log("clicked contact buttn");
+        // console.log("clicked contact buttn");
         e.stopPropagation();
         offset = $(".about-area").scrollTop()+$(".contact.section").offset().top - parseInt($('.about-top-area').outerHeight())-20;
-        console.log("offset")
-        console.log(offset)
+        // console.log("offset")
+        // console.log(offset)
 
         gsap.to('.about-area', {scrollTop: offset, duration: 0.5});
     })
