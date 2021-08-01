@@ -496,6 +496,14 @@ div {
       display: block;
       width: 100%;
       height: auto; }
+      .map-container .map-draggable .map-background .map-lowres {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: 1; }
     .map-container .map-draggable .artwork-thumbnails {
       position: absolute;
       top: 0;
