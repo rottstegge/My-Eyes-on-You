@@ -472,10 +472,13 @@ $(function(){
         let singleArtworkOverlay = $('.single-artwork-overlay');
 
         // layout for minimap
-        let ratio = $('.map-background').outerWidth() /  $('.map-background').outerHeight();
+        // let ratio = $('.map-background').outerWidth() /  $('.map-background').outerHeight();
+        let ratio = 1.490;
         //let newWidth = $('.artist-btn').outerWidth() + $('.about-btn').outerWidth();
         let newWidth = $('.artist-btn').outerWidth() + $('.contact-btn').outerWidth();
         $('.about-btn').css('width', $('.contact-btn').outerWidth());
+        console.log("newWidth:" +  newWidth);
+        console.log("ratio: " + ratio);
         $(minimap).attr({
             "data-default-width": newWidth,
             "data-default-height": (newWidth/ratio)
